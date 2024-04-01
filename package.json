@@ -1,0 +1,29 @@
+{
+  "name": "io.appmetrica.analytics",
+  "version": "6.0.0",
+  "displayName": "AppMetrica",
+  "description": "A Unity plugin for AppMetrica. AppMetrica is an end-to-end app analytics and marketing tool that works for Android and iOS.",
+  "changelogUrl": "https://appmetrica.io/docs/en/sdk/unity/changelog",
+  "documentationUrl": "https://appmetrica.io/docs/en/sdk/unity/analytics/quick-start",
+  "license": "See LICENSE.md file",
+  "licensesUrl": "LICENSE.md",
+  "readme": "README.md",
+  "unity": "2018.3",
+  "author": {
+    "name": "AppMetrica",
+    "url": "https://appmetrica.io"
+  },
+  "keywords": [
+    "appmetrica",
+    "analytics",
+    "android",
+    "ios",
+    "crash",
+    "revenue",
+    "adrevenue",
+    "ecommerce"
+  ],
+  "dependencies": {
+      "com.google.external-dependency-manager": "1.2.177"
+  }
+}

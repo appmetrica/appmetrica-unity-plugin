@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<dependencies>
+    <androidPackages>
+        <androidPackage spec="io.appmetrica.analytics:analytics:6.2.1"/>
+        <androidPackage spec="androidx.annotation:annotation:1.7.1"/>
+    </androidPackages>
+    <iosPods>
+        <iosPod name="AppMetricaAnalytics" version="5.1.0"/>
+    </iosPods>
+</dependencies>
