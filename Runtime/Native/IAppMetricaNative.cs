@@ -24,6 +24,8 @@ namespace Io.AppMetrica.Native {
         [CanBeNull]
         public string GetUuid();
 
+        public bool IsActivated();
+
         public void PauseSession();
 
         public void PutAppEnvironmentValue([NotNull] string key, [CanBeNull] string value);
@@ -43,6 +45,8 @@ namespace Io.AppMetrica.Native {
         public void ReportEvent([NotNull] string eventName);
 
         public void ReportEvent([NotNull] string eventName, [CanBeNull] string jsonValue);
+
+        public void ReportExceptionFromLog(string condition, string exception, string source);
 
         public void ReportRevenue([NotNull] Revenue revenue);
 

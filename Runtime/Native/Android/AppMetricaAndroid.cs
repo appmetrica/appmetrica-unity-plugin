@@ -8,7 +8,6 @@ using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace Io.AppMetrica.Native.Android {
     internal class AppMetricaAndroid : IAppMetricaNative {
@@ -43,6 +42,10 @@ namespace Io.AppMetrica.Native.Android {
         [CanBeNull]
         public string GetUuid() {
             return AppMetricaProxy.GetUuid();
+        }
+
+        public bool IsActivated() {
+            return AppMetricaProxy.IsActivated();
         }
 
         public void PauseSession() {
@@ -86,6 +89,10 @@ namespace Io.AppMetrica.Native.Android {
 
         public void ReportEvent([NotNull] string eventName, [CanBeNull] string jsonValue) {
             AppMetricaProxy.ReportEvent(eventName, jsonValue);
+        }
+
+        public void ReportExceptionFromLog(string condition, string exception, string source) {
+            AppMetricaProxy.ReportErrorWithoutIdentifier(condition, ExceptionSerializer.GetFromLogs(condition, exception, source));
         }
 
         public void ReportRevenue([NotNull] Revenue revenue) {

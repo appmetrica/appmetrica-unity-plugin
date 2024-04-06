@@ -43,6 +43,10 @@ namespace Io.AppMetrica.Native.Ios {
             return AppMetricaProxy.amau_getUuid();
         }
 
+        public bool IsActivated() {
+            return AppMetricaProxy.amau_isActivated();
+        }
+
         public void PauseSession() {
             AppMetricaProxy.amau_pauseSession();
         }
@@ -84,6 +88,10 @@ namespace Io.AppMetrica.Native.Ios {
 
         public void ReportEvent([NotNull] string eventName, [CanBeNull] string jsonValue) {
             AppMetricaProxy.amau_reportEvent(eventName, jsonValue);
+        }
+
+        public void ReportExceptionFromLog(string condition, string exception, string source) {
+            AppMetricaProxy.amau_reportErrorWithoutIdentifier(condition, ExceptionSerializer.GetFromLogs(condition, exception, source));
         }
 
         public void ReportRevenue([NotNull] Revenue revenue) {

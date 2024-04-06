@@ -3,7 +3,6 @@ using Io.AppMetrica.Profile;
 using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Io.AppMetrica.Native.Dummy {
     internal class AppMetricaDummy : IAppMetricaNative {
@@ -25,6 +24,8 @@ namespace Io.AppMetrica.Native.Dummy {
         [CanBeNull]
         public string GetUuid() => null;
 
+        public bool IsActivated() => false;
+
         public void PauseSession() { }
 
         public void PutAppEnvironmentValue([NotNull] string key, [CanBeNull] string value) { }
@@ -45,6 +46,8 @@ namespace Io.AppMetrica.Native.Dummy {
 
         public void ReportEvent([NotNull] string eventName, [CanBeNull] string jsonValue) { }
 
+        public void ReportExceptionFromLog(string condition, string exception, string source) { }
+        
         public void ReportRevenue([NotNull] Revenue revenue) { }
 
         public void ReportUnhandledException([NotNull] Exception exception) { }

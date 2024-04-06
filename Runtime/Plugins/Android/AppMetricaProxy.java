@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import io.appmetrica.analytics.AppMetrica;
+import io.appmetrica.analytics.ModulesFacade;
 import io.appmetrica.analytics.StartupParamsCallback;
 import io.appmetrica.analytics.plugins.PluginErrorDetails;
 
@@ -50,6 +51,10 @@ public final class AppMetricaProxy {
     @Nullable
     public static String getUuid() {
         return AppMetrica.getUuid(getActivity());
+    }
+    
+    public static boolean isActivated() {
+        return ModulesFacade.isActivatedForApp();
     }
 
     public static void pauseSession() {

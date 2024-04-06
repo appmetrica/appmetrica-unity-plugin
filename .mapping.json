@@ -47,6 +47,8 @@
   "Runtime/IReporter.cs":"mobile/metrika/unity/appmetrica-plugin/Runtime/IReporter.cs",
   "Runtime/IReporter.cs.meta":"mobile/metrika/unity/appmetrica-plugin/Runtime/IReporter.cs.meta",
   "Runtime/Internal.meta":"mobile/metrika/unity/appmetrica-plugin/Runtime/Internal.meta",
+  "Runtime/Internal/CrashHandler.cs":"mobile/metrika/unity/appmetrica-plugin/Runtime/Internal/CrashHandler.cs",
+  "Runtime/Internal/CrashHandler.cs.meta":"mobile/metrika/unity/appmetrica-plugin/Runtime/Internal/CrashHandler.cs.meta",
   "Runtime/Internal/Ecommerce.meta":"mobile/metrika/unity/appmetrica-plugin/Runtime/Internal/Ecommerce.meta",
   "Runtime/Internal/Ecommerce/AddCartItemECommerceEvent.cs":"mobile/metrika/unity/appmetrica-plugin/Runtime/Internal/Ecommerce/AddCartItemECommerceEvent.cs",
   "Runtime/Internal/Ecommerce/AddCartItemECommerceEvent.cs.meta":"mobile/metrika/unity/appmetrica-plugin/Runtime/Internal/Ecommerce/AddCartItemECommerceEvent.cs.meta",

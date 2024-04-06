@@ -7,6 +7,7 @@ void amau_clearAppEnvironment();
 char *amau_getDeviceID();
 char *amau_getLibraryVersion();
 char *amau_getUuid();
+bool amau_isActivated();
 void amau_pauseSession();
 void amau_putAppEnvironmentValue(char *key, char *value);
 void amau_putErrorEnvironmentValue(char *key, char *value);

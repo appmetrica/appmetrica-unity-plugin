@@ -27,6 +27,9 @@ namespace Io.AppMetrica.Native.Ios.Proxy {
         public static extern string amau_getUuid();
 
         [DllImport("__Internal")]
+        public static extern bool amau_isActivated();
+        
+        [DllImport("__Internal")]
         public static extern void amau_pauseSession();
 
         [DllImport("__Internal")]

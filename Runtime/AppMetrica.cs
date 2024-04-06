@@ -20,6 +20,7 @@ namespace Io.AppMetrica {
     /// Class assistant for analytic processing.
     /// </summary>
     public static class AppMetrica {
+        private static bool _isActivated = false;
         [NotNull]
         private static readonly IAppMetricaNative Native;
         [NotNull]
@@ -44,6 +45,7 @@ namespace Io.AppMetrica {
         /// <param name="config">AppMetrica configuration object.</param>
         public static void Activate([NotNull] AppMetricaConfig config) {
             Native.Activate(config);
+            _isActivated = true;
         }
 
         /// <summary>
@@ -109,6 +111,13 @@ namespace Io.AppMetrica {
         [CanBeNull]
         public static string GetUuid() {
             return Native.GetUuid();
+        }
+
+        public static bool IsActivated() {
+            if (!_isActivated && Native.IsActivated()) {
+                _isActivated = true;
+            }
+            return _isActivated;
         }
 
         /// <summary>
@@ -369,6 +378,10 @@ namespace Io.AppMetrica {
         /// <param name="userProfileID">The custom user profile ID.</param>
         public static void SetUserProfileID([CanBeNull] string userProfileID) {
             Native.SetUserProfileID(userProfileID);
+        }
+
+        internal static void ReportExceptionFromLog(string condition, string exception, string source) {
+            Native.ReportExceptionFromLog(condition, exception, source);
         }
     }
 }

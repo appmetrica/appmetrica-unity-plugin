@@ -53,6 +53,11 @@ char *amau_getUuid()
     return amau_cStringFromString(AMAAppMetrica.UUID);
 }
 
+bool amau_isActivated()
+{
+    return AMAAppMetrica.isActivated;
+}
+
 void amau_pauseSession()
 {
     [AMAAppMetrica pauseSession];

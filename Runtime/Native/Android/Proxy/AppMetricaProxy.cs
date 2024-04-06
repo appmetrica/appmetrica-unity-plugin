@@ -35,6 +35,10 @@ namespace Io.AppMetrica.Native.Android.Proxy {
             return NativeClass.CallStatic<string>("getUuid");
         }
 
+        public static bool IsActivated() {
+            return NativeClass.CallStatic<bool>("isActivated");
+        }
+
         public static void PauseSession() {
             NativeClass.CallStatic("pauseSession");
         }
