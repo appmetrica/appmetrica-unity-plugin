@@ -57,6 +57,9 @@ namespace Io.AppMetrica.Native.Ios.Proxy {
         public static extern void amau_reportEvent([NotNull] string message, [CanBeNull] string jsonValue);
 
         [DllImport("__Internal")]
+        public static extern void amay_reportExternalAttribution([NotNull] string source, [NotNull] string value);
+        
+        [DllImport("__Internal")]
         public static extern void amau_reportRevenue([NotNull] string revenue);
 
         [DllImport("__Internal")]

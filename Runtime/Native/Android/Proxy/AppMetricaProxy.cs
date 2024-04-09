@@ -75,6 +75,10 @@ namespace Io.AppMetrica.Native.Android.Proxy {
             NativeClass.CallStatic("reportEvent", eventName, jsonValue);
         }
 
+        public static void ReportExternalAttribution([NotNull] string source, [NotNull] string value) {
+            NativeClass.CallStatic("reportExternalAttribution", source, value);
+        }
+
         public static void ReportRevenue([NotNull] string revenue) {
             NativeClass.CallStatic("reportRevenue", revenue);
         }

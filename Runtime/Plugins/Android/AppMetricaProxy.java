@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.unity3d.player.UnityPlayer;
 import org.json.JSONException;
+import org.json.JSONObject;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -52,7 +53,7 @@ public final class AppMetricaProxy {
     public static String getUuid() {
         return AppMetrica.getUuid(getActivity());
     }
-    
+
     public static boolean isActivated() {
         return ModulesFacade.isActivatedForApp();
     }
@@ -113,6 +114,10 @@ public final class AppMetricaProxy {
 
     public static void reportEvent(@NonNull String eventName, @Nullable String jsonValue) {
         AppMetrica.reportEvent(eventName, jsonValue);
+    }
+
+    public static void reportExternalAttribution(@NonNull String source, @NonNull String value) {
+        ModulesFacade.reportExternalAttribution(ExternalAttributionSerializer.getSourceId(source), value);
     }
 
     public static void reportRevenue(@NonNull String revenue) {

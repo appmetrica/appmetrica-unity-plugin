@@ -94,6 +94,10 @@ namespace Io.AppMetrica.Native.Ios {
             AppMetricaProxy.amau_reportErrorWithoutIdentifier(condition, ExceptionSerializer.GetFromLogs(condition, exception, source));
         }
 
+        public void ReportExternalAttribution([NotNull] string source, [NotNull] string value) {
+            AppMetricaProxy.amay_reportExternalAttribution(source, value);
+        }
+
         public void ReportRevenue([NotNull] Revenue revenue) {
             AppMetricaProxy.amau_reportRevenue(revenue.ToJsonString());
         }

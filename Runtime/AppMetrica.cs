@@ -230,6 +230,12 @@ namespace Io.AppMetrica {
             Native.ReportEvent(eventName, jsonValue);
         }
 
+        public static void ReportExternalAttribution([NotNull] ExternalAttribution externalAttribution) {
+            if (externalAttribution.Value != null) {
+                Native.ReportExternalAttribution(externalAttribution.Source, externalAttribution.Value);
+            }
+        }
+        
         /// <summary>
         /// Sends information about the purchase.
         /// <p><b>Platforms</b>: Android, iOS.</p>

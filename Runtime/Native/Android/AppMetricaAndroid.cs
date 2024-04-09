@@ -95,6 +95,10 @@ namespace Io.AppMetrica.Native.Android {
             AppMetricaProxy.ReportErrorWithoutIdentifier(condition, ExceptionSerializer.GetFromLogs(condition, exception, source));
         }
 
+        public void ReportExternalAttribution([NotNull] string source, [NotNull] string value) {
+            AppMetricaProxy.ReportExternalAttribution(source, value);
+        }
+
         public void ReportRevenue([NotNull] Revenue revenue) {
             AppMetricaProxy.ReportRevenue(revenue.ToJsonString());
         }

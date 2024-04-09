@@ -17,6 +17,7 @@ void amau_reportECommerce(char *eCommerceJson);
 void amau_reportErrorWithoutIdentifier(char *message, char *error);
 void amau_reportError(char *identifier, char *message, char *error);
 void amau_reportEvent(char *message, char *paramsJson);
+void amay_reportExternalAttribution(char *source, char *value);
 void amau_reportRevenue(char *revenueJson);
 void amau_reportUnhandledException(char *exception);
 void amau_reportUserProfile(char *userProfileJson);

@@ -48,6 +48,8 @@ namespace Io.AppMetrica.Native {
 
         public void ReportExceptionFromLog(string condition, string exception, string source);
 
+        public void ReportExternalAttribution([NotNull] string source, [NotNull] string value);
+
         public void ReportRevenue([NotNull] Revenue revenue);
 
         public void ReportUnhandledException([NotNull] Exception exception);

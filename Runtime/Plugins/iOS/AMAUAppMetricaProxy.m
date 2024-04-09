@@ -6,6 +6,7 @@
 #import "AMAUAppMetricaConfiguration.h"
 #import "AMAUECommerceEvent.h"
 #import "AMAUException.h"
+#import "AMAUExternalAttribution.h"
 #import "AMAULocation.h"
 #import "AMAUReporterConfiguration.h"
 #import "AMAURevenueInfo.h"
@@ -141,6 +142,20 @@ void amau_reportEvent(char *message, char *paramsJson)
                     parameters:amau_dictionaryFromCString(paramsJson)
                      onFailure:^(NSError *error) {
         NSLog(@"Failed to report event to AppMetrica: %@", [error localizedDescription]);
+    }];
+}
+
+void amay_reportExternalAttribution(char *sourceStr, char *value)
+{
+    AMAAttributionSource source = amau_getExternalAttributionSource(sourceStr);
+    if (source == nil) {
+        NSLog(@"Failed to report external attribution to AppMetrica. Unknown source %s", sourceStr);
+        return;
+    }
+    
+    NSDictionary *dict = amau_dictionaryFromCString(value);
+    [AMAAppMetrica reportExternalAttribution:dict source:source onFailure:^(NSError *error) {
+        NSLog(@"Failed to report external attribution to AppMetrica: %@", [error localizedDescription]);
     }];
 }
 
