@@ -22,6 +22,7 @@ namespace Io.AppMetrica.Profile {
 
         /// <summary>
         /// Updates the attribute with the specified value.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="value">Actual status.</param>
@@ -34,6 +35,7 @@ namespace Io.AppMetrica.Profile {
         /// <summary>
         /// Updates the attribute with the specified value only if the attribute value is undefined.
         /// The method doesn't affect the value if it has been set earlier.
+        /// 
         /// <p><b>Platforms</b>: Android.</p>
         /// </summary>
         /// <param name="value">Actual status.</param>
@@ -45,6 +47,7 @@ namespace Io.AppMetrica.Profile {
 
         /// <summary>
         /// Resets the attribute value.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <returns>The <see cref="UserProfileUpdate"/> object.</returns>

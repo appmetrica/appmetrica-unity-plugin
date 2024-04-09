@@ -24,6 +24,7 @@ namespace Io.AppMetrica.Profile {
         /// <p>It calculates the birth year by using the following formula:
         /// Birth Year = currentYear - age.</p>
         /// <p><b>NOTE:</b> It overwrites the existing value.</p>
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="age">Age of the user.</param>
@@ -37,6 +38,7 @@ namespace Io.AppMetrica.Profile {
         /// The method doesn't affect the value if it has been set earlier.
         /// <p>It calculates the birth year by using the following formula:
         /// Birth Year = currentYear - age.</p>
+        /// 
         /// <p><b>Platforms</b>: Android.</p>
         /// </summary>
         /// <param name="age">Age of the user</param>
@@ -49,6 +51,7 @@ namespace Io.AppMetrica.Profile {
         /// Updates the birth date attribute with the specified value.
         /// <p>This methods sets year of the birth date.</p>
         /// <p><b>NOTE:</b> It overwrites the existing value.</p>
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="year">Year of birth.</param>
@@ -61,6 +64,7 @@ namespace Io.AppMetrica.Profile {
         /// Updates the birth date attribute with the specified values.
         /// <p>This method sets the year and month of the birth date.</p>
         /// <p><b>NOTE:</b> It overwrites the existing value.</p>
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="year">Year of birth.</param>
@@ -74,6 +78,7 @@ namespace Io.AppMetrica.Profile {
         /// Updates the birth date attribute with the specified values.
         /// <p>This methods sets year, month and day of the month of the birth date.</p>
         /// <p><b>NOTE:</b> It overwrites the existing value.</p>
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="year">Year of birth.</param>
@@ -92,6 +97,7 @@ namespace Io.AppMetrica.Profile {
         /// Updates the birth date attribute with the specified value only if the attribute value is undefined.
         /// The method doesn't affect the value if it has been set earlier.
         /// <p>This methods sets year of the birth date.</p>
+        /// 
         /// <p><b>Platforms</b>: Android.</p>
         /// </summary>
         /// <param name="year">Year of birth.</param>
@@ -104,6 +110,7 @@ namespace Io.AppMetrica.Profile {
         /// Updates the birth date attribute with the specified values only if the attribute value is undefined.
         /// The method doesn't affect the value if it has been set earlier.
         /// <p>This method sets the year and month of the birth date.</p>
+        /// 
         /// <p><b>Platforms</b>: Android.</p>
         /// </summary>
         /// <param name="year">Year of birth.</param>
@@ -117,6 +124,7 @@ namespace Io.AppMetrica.Profile {
         /// Updates the birth date attribute with the specified values only if the attribute value is undefined.
         /// The method doesn't affect the value if it has been set earlier.
         /// <p>This methods sets year, month and day of the month of the birth date.</p>
+        /// 
         /// <p><b>Platforms</b>: Android.</p>
         /// </summary>
         /// <param name="year">Year of birth.</param>
@@ -133,6 +141,7 @@ namespace Io.AppMetrica.Profile {
 
         /// <summary>
         /// Resets the birth date attribute value.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <returns>The <see cref="UserProfileUpdate"/> object.</returns>

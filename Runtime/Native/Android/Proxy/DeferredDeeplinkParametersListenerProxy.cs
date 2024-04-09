@@ -19,7 +19,8 @@ namespace Io.AppMetrica.Native.Android.Proxy {
             _onErrorDelegate = onErrorDelegate;
         }
 
-        void onParametersLoaded([NotNull] string parameters) {
+        // ReSharper disable once InconsistentNaming
+        public void onParametersLoaded([NotNull] string parameters) {
             _onParametersLoadedDelegate(
                 JSONDecoder.Decode(parameters).ObjectValue.ToDictionary(
                     keySelector: it => it.Key,
@@ -28,7 +29,8 @@ namespace Io.AppMetrica.Native.Android.Proxy {
             );
         }
 
-        void onError([NotNull] string error, [NotNull] string referrer) {
+        // ReSharper disable once InconsistentNaming
+        public void onError([NotNull] string error, [NotNull] string referrer) {
             _onErrorDelegate?.Invoke(GetError(error), referrer);
         }
 

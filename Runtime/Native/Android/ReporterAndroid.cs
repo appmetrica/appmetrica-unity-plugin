@@ -1,12 +1,10 @@
 #if UNITY_ANDROID
 using Io.AppMetrica.Ecommerce;
-using Io.AppMetrica.Internal;
 using Io.AppMetrica.Native.Android.Proxy;
 using Io.AppMetrica.Native.Utils.Serializer;
 using Io.AppMetrica.Profile;
 using JetBrains.Annotations;
 using System;
-using System.Collections.Generic;
 
 namespace Io.AppMetrica.Native.Android {
     internal class ReporterAndroid : IReporterNative {

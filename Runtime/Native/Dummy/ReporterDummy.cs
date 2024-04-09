@@ -2,7 +2,6 @@ using Io.AppMetrica.Ecommerce;
 using Io.AppMetrica.Profile;
 using JetBrains.Annotations;
 using System;
-using System.Collections.Generic;
 
 namespace Io.AppMetrica.Native.Dummy {
     internal class ReporterDummy : IReporterNative {

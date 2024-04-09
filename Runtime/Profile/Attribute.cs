@@ -12,6 +12,7 @@ namespace Io.AppMetrica.Profile {
     public static class Attribute {
         /// <summary>
         /// Creates a birth date attribute.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <returns>The <see cref="Profile.BirthDateAttribute"/> object.</returns>
@@ -22,6 +23,7 @@ namespace Io.AppMetrica.Profile {
 
         /// <summary>
         /// Creates a custom boolean attribute.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="key">Attribute key. It can contain up to 200 characters.</param>
@@ -33,6 +35,7 @@ namespace Io.AppMetrica.Profile {
 
         /// <summary>
         /// Creates a custom counter attribute.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="key">Attribute key. It can contain up to 200 characters.</param>
@@ -44,6 +47,7 @@ namespace Io.AppMetrica.Profile {
 
         /// <summary>
         /// Creates a custom number attribute.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="key">Attribute key. It can contain up to 200 characters.</param>
@@ -55,6 +59,7 @@ namespace Io.AppMetrica.Profile {
 
         /// <summary>
         /// Creates a custom string attribute.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="key">Attribute key. It can contain up to 200 characters.</param>
@@ -66,6 +71,7 @@ namespace Io.AppMetrica.Profile {
 
         /// <summary>
         /// Creates a gender attribute.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <returns>The <see cref="Profile.GenderAttribute"/> object.</returns>
@@ -76,6 +82,7 @@ namespace Io.AppMetrica.Profile {
 
         /// <summary>
         /// Creates a name attribute.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p> 
         /// </summary>
         /// <returns>The <see cref="Profile.NameAttribute"/> object.</returns>
@@ -87,6 +94,7 @@ namespace Io.AppMetrica.Profile {
         /// <summary>
         /// Creates a enabled notifications attribute.
         /// It indicates whether the user has enabled notifications for the application.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <returns>The <see cref="Profile.NotificationsEnabledAttribute"/> object.</returns>

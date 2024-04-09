@@ -78,11 +78,11 @@ AMAAppMetricaConfiguration *amau_deserializeAppMetricaConfiguration(char *json)
     if (dict[@"RevenueAutoTrackingEnabled"] != nil) {
         config.revenueAutoTrackingEnabled = [dict[@"RevenueAutoTrackingEnabled"] boolValue];
     }
-    if (dict[@"SessionsAutoTrackingEnabled"] != nil) {
-        config.sessionsAutoTracking = [dict[@"SessionsAutoTrackingEnabled"] boolValue];
-    }
     if (dict[@"SessionTimeout"] != nil) {
         config.sessionTimeout = [dict[@"SessionTimeout"] unsignedIntegerValue];
+    }
+    if (dict[@"SessionsAutoTrackingEnabled"] != nil) {
+        config.sessionsAutoTracking = [dict[@"SessionsAutoTrackingEnabled"] boolValue];
     }
     if (dict[@"UserProfileID"] != nil) {
         config.userProfileID = dict[@"UserProfileID"];

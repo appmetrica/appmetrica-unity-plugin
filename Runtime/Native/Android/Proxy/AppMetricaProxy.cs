@@ -1,7 +1,5 @@
 #if UNITY_ANDROID
 using JetBrains.Annotations;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Io.AppMetrica.Native.Android.Proxy {

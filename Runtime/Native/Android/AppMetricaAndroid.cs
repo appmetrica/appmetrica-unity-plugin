@@ -1,6 +1,5 @@
 #if UNITY_ANDROID
 using Io.AppMetrica.Ecommerce;
-using Io.AppMetrica.Internal;
 using Io.AppMetrica.Native.Android.Proxy;
 using Io.AppMetrica.Native.Utils.Serializer;
 using Io.AppMetrica.Profile;
@@ -119,7 +118,7 @@ namespace Io.AppMetrica.Native.Android {
             AppMetricaProxy.RequestDeferredDeeplinkParameters(new DeferredDeeplinkParametersListenerProxy(onParametersLoaded, onError));
         }
 
-        public void RequestStartupParams([NotNull] StartupParams.Delegate action, [NotNull] IEnumerable<string> identifiers) {
+        public void RequestStartupParams([NotNull] StartupParamsDelegate action, [NotNull] IEnumerable<string> identifiers) {
             AppMetricaProxy.RequestStartupParams(new StartupParamsCallbackProxy(action), identifiers.ToArray());
         }
 

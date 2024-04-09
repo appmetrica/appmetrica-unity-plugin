@@ -1,18 +1,24 @@
 using System.Collections.Generic;
 
 namespace Io.AppMetrica {
-    /// Android: io.appmetrica.analytics.PreloadInfo
+    /// <summary>
+    /// Contains information for tracking preloaded apps.
+    /// </summary>
     public class PreloadInfo {
-        /// Android:
-        ///   java.util.Map getAdditionalParams()
-        ///   io.appmetrica.analytics.PreloadInfo$Builder setAdditionalParams(java.lang.String, java.lang.String)
-        public IDictionary<string, string> AdditionalParams { get; set; }
-
-        /// Android:
-        ///   java.lang.String getTrackingId()
+        /// <summary>
+        /// Tracking Id for tracking preloaded apps.
+        /// </summary>
         public string TrackingId { get; }
 
-        /// Android: static io.appmetrica.analytics.PreloadInfo$Builder newBuilder(java.lang.String)
+        /// <summary>
+        /// Additional parameters for tracking preloaded apps.
+        /// </summary>
+        public IDictionary<string, string> AdditionalParams { get; set; }
+
+        /// <summary>
+        /// Initializes the PreloadInfo object.
+        /// </summary>
+        /// <param name="trackingId">the Tracking Id for tracking preloaded apps.</param>
         public PreloadInfo(string trackingId) {
             TrackingId = trackingId;
         }

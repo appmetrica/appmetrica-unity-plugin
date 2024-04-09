@@ -25,6 +25,7 @@ namespace Io.AppMetrica.Profile {
 
         /// <summary>
         /// Updates the counter attribute value with the specified delta value.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="value">Delta value to change the counter attribute value.</param>

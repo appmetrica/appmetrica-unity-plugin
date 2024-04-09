@@ -1,7 +1,5 @@
 using Io.AppMetrica.Internal;
 using JetBrains.Annotations;
-using System.Globalization;
-using UnityEngine;
 
 namespace Io.AppMetrica.Ecommerce {
     /// <summary>
@@ -10,12 +8,14 @@ namespace Io.AppMetrica.Ecommerce {
     public class ECommerceAmount {
         /// <summary>
         /// Amount value as string.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         public string Amount { get; }
 
         /// <summary>
         /// Amount unit. For example, "USD" "RUB", etc.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [NotNull]

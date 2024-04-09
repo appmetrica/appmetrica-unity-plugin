@@ -30,6 +30,7 @@ namespace Io.AppMetrica.Profile {
 
         /// <summary>
         /// Creates a UserProfile.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         public UserProfile() {
@@ -41,6 +42,7 @@ namespace Io.AppMetrica.Profile {
         /// <p>Use the <see cref="AppMetrica.ReportUserProfile">AppMetrica.ReportUserProfile(UserProfile)</see>
         /// method to send updated data to the AppMetrica server.</p>
         /// <p>To create a <see cref="UserProfileUpdate"/> object, use methods from the <see cref="Attribute"/>.</p>
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="profileUpdate">The <see cref="UserProfileUpdate"/> object of the attribute update.</param>

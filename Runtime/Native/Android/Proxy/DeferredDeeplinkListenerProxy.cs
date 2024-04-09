@@ -17,11 +17,13 @@ namespace Io.AppMetrica.Native.Android.Proxy {
             _onErrorDelegate = onErrorDelegate;
         }
 
-        void onDeeplinkLoaded([NotNull] string deeplink) {
+        // ReSharper disable once InconsistentNaming
+        public void onDeeplinkLoaded([NotNull] string deeplink) {
             _onDeeplinkLoadedDelegate(deeplink);
         }
 
-        void onError([NotNull] string error, [NotNull] string referrer) {
+        // ReSharper disable once InconsistentNaming
+        public void onError([NotNull] string error, [NotNull] string referrer) {
             _onErrorDelegate?.Invoke(GetError(error), referrer == "<UNITY_NULL>" ? null : referrer);
         }
 

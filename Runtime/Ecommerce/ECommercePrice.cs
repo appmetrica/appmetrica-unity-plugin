@@ -8,6 +8,7 @@ namespace Io.AppMetrica.Ecommerce {
     public class ECommercePrice {
         /// <summary>
         /// Amount in fiat money.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [NotNull]
@@ -15,6 +16,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Sets price internal components - amounts in internal currency.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
@@ -22,6 +24,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Creates a price.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="fiat">Amount in fiat money.</param>

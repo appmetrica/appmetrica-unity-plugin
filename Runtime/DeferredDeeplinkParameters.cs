@@ -1,20 +1,21 @@
 using JetBrains.Annotations;
+using System.Collections.Generic;
 
 namespace Io.AppMetrica {
     /// <summary>
-    /// Helper class for <see cref="AppMetrica.RequestDeferredDeeplink"/> method.
+    /// Helper class for <see cref="AppMetrica.RequestDeferredDeeplinkParameters"/> method.
     /// </summary>
-    public static class DeferredDeeplink {
+    public static class DeferredDeeplinkParameters {
         /// <summary>
-        /// Called when deferred deeplink requested in <see cref="AppMetrica.RequestDeferredDeeplink"/> is obtained.
+        /// Called when deferred deeplink parameters requested in <see cref="AppMetrica.RequestDeferredDeeplinkParameters"/> are obtained.
         /// </summary>
-        /// <param name="deeplink">obtained deferred deeplink.</param>
-        public delegate void DeeplinkDelegate([NotNull] string deeplink);
+        /// <param name="parameters">dictionary with obtained deferred deeplink parameters.</param>
+        public delegate void ParametersDelegate([NotNull] IDictionary<string, string> parameters);
 
         /// <summary>
-        /// Called when error occurs during deferred deeplink obtaining by <see cref="AppMetrica.RequestDeferredDeeplink"/>.
+        /// Called when error occurs during deferred deeplink parameters obtaining by <see cref="AppMetrica.RequestDeferredDeeplinkParameters"/>.
         /// </summary>
-        /// <param name="error">error which tells why deferred deeplink was not obtained.</param>
+        /// <param name="error">error which tells why deferred deeplink parameters were not obtained.</param>
         /// <param name="referrer">Google Play referrer in case of <see cref="Error.ParseError"/>.</param>
         public delegate void ErrorDelegate(Error? error, [CanBeNull] string referrer);
 

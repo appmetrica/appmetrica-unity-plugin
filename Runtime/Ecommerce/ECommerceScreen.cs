@@ -8,6 +8,7 @@ namespace Io.AppMetrica.Ecommerce {
     public class ECommerceScreen {
         /// <summary>
         /// Path to the screen.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
@@ -15,6 +16,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Name of the screen.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
@@ -22,6 +24,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Additional key-value structured data with various content.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
@@ -29,6 +32,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Search query.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]

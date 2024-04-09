@@ -8,6 +8,7 @@ namespace Io.AppMetrica.Ecommerce {
     public class ECommerceOrder {
         /// <summary>
         /// List of items in the cart.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [NotNull]
@@ -15,6 +16,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Order identifier.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [NotNull]
@@ -22,6 +24,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Additional key-value structured data with various content.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]

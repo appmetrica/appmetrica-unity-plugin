@@ -118,7 +118,7 @@ namespace Io.AppMetrica.Native.Ios {
             // not supported in iOS
         }
 
-        public void RequestStartupParams([NotNull] StartupParams.Delegate action, [NotNull] IEnumerable<string> identifiers) {
+        public void RequestStartupParams([NotNull] StartupParamsDelegate action, [NotNull] IEnumerable<string> identifiers) {
             AppMetricaProxy.amau_requestStartupParams(JSONEncoder.Encode(identifiers), StartupParamsCallbackProxy.Callback, ActionUtils.ToIntPtr(action));
         }
 

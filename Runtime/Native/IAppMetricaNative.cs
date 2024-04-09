@@ -60,7 +60,7 @@ namespace Io.AppMetrica.Native {
 
         public void RequestDeferredDeeplinkParameters([NotNull] DeferredDeeplinkParameters.ParametersDelegate onParametersLoaded, [CanBeNull] DeferredDeeplinkParameters.ErrorDelegate onError);
 
-        public void RequestStartupParams([NotNull] StartupParams.Delegate action, [NotNull] IEnumerable<string> identifiers);
+        public void RequestStartupParams([NotNull] StartupParamsDelegate action, [NotNull] IEnumerable<string> identifiers);
 
         public void ResumeSession();
 

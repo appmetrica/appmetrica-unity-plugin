@@ -8,6 +8,7 @@ namespace Io.AppMetrica.Ecommerce {
     public class ECommerceProduct {
         /// <summary>
         /// Actual price of the product - price after all discounts and promocodes are applied.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
@@ -15,6 +16,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Categories-wise path to the product.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
@@ -22,6 +24,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Name of the product.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
@@ -29,6 +32,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Original price of the product.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
@@ -36,6 +40,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Additional key-value structured data with various content.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
@@ -43,6 +48,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// List of promocodes applied to the product.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
@@ -50,6 +56,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Product SKU (Stock Keeping Unit).
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [NotNull]

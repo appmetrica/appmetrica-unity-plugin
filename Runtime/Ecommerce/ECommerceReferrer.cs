@@ -7,6 +7,7 @@ namespace Io.AppMetrica.Ecommerce {
     public class ECommerceReferrer {
         /// <summary>
         /// Identifier of object used to perform a transition.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
@@ -14,6 +15,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Screen from which the transition started.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
@@ -22,6 +24,7 @@ namespace Io.AppMetrica.Ecommerce {
         /// <summary>
         /// Type of object used to perform a transition.
         /// For example: "button", "banner", etc.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]

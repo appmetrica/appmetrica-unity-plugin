@@ -12,6 +12,7 @@ namespace Io.AppMetrica.Ecommerce {
         /// <summary>
         /// Creates e-commerce AddCartItemEvent.
         /// Use this method to report user adding an item to cart.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="cartItem">Item that has been added to cart.</param>
@@ -24,6 +25,7 @@ namespace Io.AppMetrica.Ecommerce {
         /// <summary>
         /// Creates e-commerce BeginCheckoutEvent.
         /// Use this event to report user begin checkout a purchase.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="order">Various info about purchase.</param>
@@ -36,6 +38,7 @@ namespace Io.AppMetrica.Ecommerce {
         /// <summary>
         /// Creates e-commerce PurchaseEvent.
         /// Use this event to report user complete a purchase.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="order">Various info about purchase.</param>
@@ -48,6 +51,7 @@ namespace Io.AppMetrica.Ecommerce {
         /// <summary>
         /// Creates e-commerce RemoveCartItemEvent.
         /// Use this method to report user removing an item form cart.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="cartItem">Item that has been removed from cart.</param>
@@ -61,6 +65,7 @@ namespace Io.AppMetrica.Ecommerce {
         /// Creates e-commerce ShowProductCardEvent.
         /// Use this event to report user viewing product card among others in a list.
         /// Best practise is to consider product card viewed if it has been shown on screen for more than N seconds.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="product">Product that has been viewed.</param>
@@ -77,6 +82,7 @@ namespace Io.AppMetrica.Ecommerce {
         /// <summary>
         /// Creates e-commerce ShowProductDetailsEvent.
         /// Use this method to report user viewing product card by opening its own page.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="product">Product that has been viewed.</param>
@@ -93,6 +99,7 @@ namespace Io.AppMetrica.Ecommerce {
         /// <summary>
         /// Creates e-commerce ShowScreenEvent.
         /// Use this event to report user opening some page: product list, search screen, main page, etc.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="screen">Screen that has been opened.</param>

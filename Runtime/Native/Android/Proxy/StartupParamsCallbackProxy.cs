@@ -6,13 +6,14 @@ using UnityEngine;
 namespace Io.AppMetrica.Native.Android.Proxy {
     internal class StartupParamsCallbackProxy : AndroidJavaProxy {
         [NotNull]
-        private readonly StartupParams.Delegate _delegate;
+        private readonly StartupParamsDelegate _delegate;
 
-        public StartupParamsCallbackProxy([NotNull] StartupParams.Delegate @delegate) : base("io.appmetrica.analytics.plugin.unity.StartupParamsCallbackProxy") {
+        public StartupParamsCallbackProxy([NotNull] StartupParamsDelegate @delegate) : base("io.appmetrica.analytics.plugin.unity.StartupParamsCallbackProxy") {
             _delegate = @delegate;
         }
 
-        void onReceive([NotNull] string result, [NotNull] string errorReason) {
+        // ReSharper disable once InconsistentNaming
+        public void onReceive([NotNull] string result, [NotNull] string errorReason) {
             _delegate(StartupParamsSerializer.ResultFromJsonString(result), StartupParamsSerializer.ErrorReasonFromJsonString(errorReason));
         }
     }

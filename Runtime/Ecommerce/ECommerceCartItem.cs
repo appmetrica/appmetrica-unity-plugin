@@ -8,6 +8,7 @@ namespace Io.AppMetrica.Ecommerce {
     public class ECommerceCartItem {
         /// <summary>
         /// Item product.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [NotNull]
@@ -15,12 +16,14 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Quantity of item product as string.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         public string Quantity { get; }
 
         /// <summary>
         /// Cart item referrer which describes a way item was added to cart.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
@@ -28,6 +31,7 @@ namespace Io.AppMetrica.Ecommerce {
 
         /// <summary>
         /// Total price of the cart item. Considers quantity, applied discounts, etc.
+        /// 
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [NotNull]

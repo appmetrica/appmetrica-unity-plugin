@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Io.AppMetrica.Native.Utils.Serializer {
     internal static class StartupParamsSerializer {
         [CanBeNull]
-        public static StartupParams.Result ResultFromJsonString([CanBeNull] string jsonStr) {
+        public static StartupParamsResult ResultFromJsonString([CanBeNull] string jsonStr) {
             if (string.IsNullOrEmpty(jsonStr)) return null;
             var json = JSONDecoder.Decode(jsonStr);
             var parametersJson = json["parameters"].ObjectValue;
@@ -13,14 +13,14 @@ namespace Io.AppMetrica.Native.Utils.Serializer {
             foreach (var (key, value) in parametersJson) {
                 parameters[key] = ItemFromJson(value);
             }
-            return new StartupParams.Result(parameters);
+            return new StartupParamsResult(parameters);
         }
 
         [CanBeNull]
-        public static StartupParams.ErrorReason ErrorReasonFromJsonString([CanBeNull] string jsonStr) {
+        public static StartupParamsErrorReason ErrorReasonFromJsonString([CanBeNull] string jsonStr) {
             if (string.IsNullOrEmpty(jsonStr)) return null;
             var json = JSONDecoder.Decode(jsonStr);
-            return new StartupParams.ErrorReason(json["value"].StringValue);
+            return new StartupParamsErrorReason(json["value"].StringValue);
         }
 
         [NotNull]
