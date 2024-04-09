@@ -1,4 +1,5 @@
 using Io.AppMetrica.Ecommerce;
+using Io.AppMetrica.Internal;
 using Io.AppMetrica.Native;
 using Io.AppMetrica.Profile;
 using JetBrains.Annotations;
@@ -47,6 +48,7 @@ namespace Io.AppMetrica {
         public static void Activate([NotNull] AppMetricaConfig config) {
             Native.Activate(config);
             _isActivated = true;
+            CrashHandler.SetAutoCrashReporting(config.CrashReporting);
         }
 
         /// <summary>
@@ -159,7 +161,7 @@ namespace Io.AppMetrica {
         /// Sets key - value data to be used as additional information, associated
         /// with your unhandled exception and error reports.
         ///
-        /// <p><b>Platforms</b>: Android.</p>
+        /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="key">the environment key.</param>
         /// <param name="value">the environment value. To remove pair from environment pass null value.</param>

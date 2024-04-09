@@ -30,7 +30,7 @@ namespace Io.AppMetrica {
         /// <p><b>WARNING:</b> Application's environment is a global permanent state and can't be changed too often.
         /// For frequently changed parameters use extended reportMessage methods.</p>
         ///
-        /// <p><b>Platforms</b>: Android.</p> // TODO: support in iOS
+        /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
         public IDictionary<string, string> AppEnvironment { get; set; }
@@ -60,7 +60,7 @@ namespace Io.AppMetrica {
         /// Default value is true.
         /// <p>True if we need to send reports about crashes, otherwise false.</p>
         ///
-        /// <p><b>Platforms</b>: Android.</p> // TODO: support in iOS
+        /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
         public bool? CrashReporting { get; set; }
@@ -95,7 +95,7 @@ namespace Io.AppMetrica {
         /// <summary>
         /// Key - value data to be used as additional information, associated with your unhandled exception and error reports.
         ///
-        /// <p><b>Platforms</b>: Android.</p> // TODO: support in iOS
+        /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
         public IDictionary<string, string> ErrorEnvironment { get; set; }

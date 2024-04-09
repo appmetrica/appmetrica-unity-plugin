@@ -3,6 +3,7 @@ package io.appmetrica.analytics.plugin.unity;
 import androidx.annotation.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.util.Iterator;
 import io.appmetrica.analytics.ReporterConfig;
 
 final class ReporterConfigSerializer {
@@ -13,6 +14,14 @@ final class ReporterConfigSerializer {
         JSONObject json = new JSONObject(config);
         ReporterConfig.Builder builder = ReporterConfig.newConfigBuilder(json.getString("ApiKey"));
 
+        if (json.has("AppEnvironment")) {
+            JSONObject env = json.getJSONObject("AppEnvironment");
+            Iterator<String> iterator = env.keys();
+            while (iterator.hasNext()) {
+                String key = iterator.next();
+                builder.withAppEnvironmentValue(key, env.getString(key));
+            }
+        }
         if (json.has("DataSendingEnabled")) {
             builder.withDataSendingEnabled(json.getBoolean("DataSendingEnabled"));
         }

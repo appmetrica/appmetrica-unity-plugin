@@ -8,6 +8,7 @@ namespace Io.AppMetrica.Native.Utils.Serializer {
         public static string ToJsonString([NotNull] this ReporterConfig self) {
             return JSONEncoder.Encode(new Dictionary<string, object> {
                 { "ApiKey", self.ApiKey },
+                { "AppEnvironment", self.AppEnvironment },
                 { "DataSendingEnabled", self.DataSendingEnabled },
                 { "DispatchPeriodSeconds", self.DispatchPeriodSeconds },
                 { "Logs", self.Logs },

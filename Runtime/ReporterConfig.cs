@@ -23,7 +23,7 @@ namespace Io.AppMetrica {
         /// <p><b>WARNING:</b> Application's environment is a global permanent state and can't be changed too often.
         /// For frequently changed parameters use extended reportMessage methods.</p>
         ///
-        /// <p><b>Platforms</b>: None.</p> // TODO: support in Android and iOS
+        /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         [CanBeNull]
         public IDictionary<string, string> AppEnvironment { get; set; }

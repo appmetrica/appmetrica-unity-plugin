@@ -4,6 +4,7 @@
 #import "AMAUAppMetricaProxy.h"
 #import "AMAUAdRevenueInfo.h"
 #import "AMAUAppMetricaConfiguration.h"
+#import "AMAUAppMetricaCrashesConfiguration.h"
 #import "AMAUECommerceEvent.h"
 #import "AMAUException.h"
 #import "AMAUExternalAttribution.h"
@@ -18,7 +19,26 @@ void amau_activate(char *configJson)
 {
     AMAAppMetricaConfiguration *config = amau_deserializeAppMetricaConfiguration(configJson);
     if (config != nil) {
+        // pre-processing of the config
+        NSDictionary *dict = amau_dictionaryFromCString(configJson);
+        // put AppEnvironment from config
+        if (dict[@"AppEnvironment"] != nil) {
+            NSDictionary *env = dict[@"AppEnvironment"];
+            for (NSString *key in env) {
+                [AMAAppMetrica setAppEnvironmentValue:env[key] forKey:key];
+            }
+        }
+        // put ErrorEnvironment from config
+        if (dict[@"ErrorEnvironment"] != nil) {
+            NSDictionary *env = dict[@"ErrorEnvironment"];
+            for (NSString *key in env) {
+                [[AMAAppMetricaCrashes crashes] setErrorEnvironmentValue:env[key] forKey:key];
+            }
+        }
+        
         [AMAAppMetrica activateWithConfiguration:config];
+        [[AMAAppMetricaCrashes crashes] setConfiguration: amau_deserializeAppMetricaCrashesConfiguration(configJson)];
+        [[[AMAAppMetricaCrashes crashes] pluginExtension] handlePluginInitFinished];
     } else {
         NSLog(@"Failed to deserialize AppMetrica configuration: %s", configJson);
     }
@@ -29,6 +49,17 @@ void amau_activateReporter(char *configJson)
     AMAReporterConfiguration *config = amau_deserializeReporterConfiguration(configJson);
     if (config != nil) {
         [AMAAppMetrica activateReporterWithConfiguration:config];
+        
+        // post-processing of the config
+        NSDictionary *dict = amau_dictionaryFromCString(configJson);
+        id<AMAAppMetricaReporting> reporter = [AMAAppMetrica reporterForAPIKey:config.APIKey];
+        // put appEnvironment from config
+        if (dict[@"AppEnvironment"] != nil) {
+            NSDictionary *env = dict[@"AppEnvironment"];
+            for (NSString *key in env) {
+                [reporter setAppEnvironmentValue:env[key] forKey:key];
+            }
+        }
     } else {
         NSLog(@"Failed to deserialize AppMetrica reporter configuration: %s", configJson);
     }
