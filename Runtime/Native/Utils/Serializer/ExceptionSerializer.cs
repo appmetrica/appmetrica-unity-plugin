@@ -140,7 +140,7 @@ namespace Io.AppMetrica.Native.Utils.Serializer {
                 { "FileName", GetGroupValueOrNull(match, "file") },
                 { "ClassName", GetGroupValueOrNull(match, "class") },
                 { "MethodName", GetGroupValueOrNull(match, "method") },
-                { "Line", lineStr == null ? null : int.Parse(lineStr) },
+                { "Line", lineStr == null ? (int?)null : int.Parse(lineStr) },
                 { "Column", null },
             };
         }

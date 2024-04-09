@@ -10,8 +10,8 @@ namespace Io.AppMetrica.Native.Utils.Serializer {
             var json = JSONDecoder.Decode(jsonStr);
             var parametersJson = json["parameters"].ObjectValue;
             var parameters = new Dictionary<string, StartupParamsItem>();
-            foreach (var (key, value) in parametersJson) {
-                parameters[key] = ItemFromJson(value);
+            foreach (var entry in parametersJson) {
+                parameters[entry.Key] = ItemFromJson(entry.Value);
             }
             return new StartupParamsResult(parameters);
         }
@@ -33,19 +33,25 @@ namespace Io.AppMetrica.Native.Utils.Serializer {
         }
 
         private static StartupParamsItemStatus StatusFromString([CanBeNull] string str) {
-            return str switch {
-                "OK" => StartupParamsItemStatus.Ok,
-                "PROVIDER_UNAVAILABLE" => StartupParamsItemStatus.ProviderUnavailable,
-                "INVALID_VALUE_FROM_PROVIDER" => StartupParamsItemStatus.InvalidValueFromProvider,
-                "NETWORK_ERROR" => StartupParamsItemStatus.NetworkError,
-                "FEATURE_DISABLED" => StartupParamsItemStatus.FeatureDisabled,
-                _ => StartupParamsItemStatus.UnknownError,
-            };
+            switch (str) {
+                case "OK":
+                    return StartupParamsItemStatus.Ok;
+                case "PROVIDER_UNAVAILABLE":
+                    return StartupParamsItemStatus.ProviderUnavailable;
+                case "INVALID_VALUE_FROM_PROVIDER":
+                    return StartupParamsItemStatus.InvalidValueFromProvider;
+                case "NETWORK_ERROR":
+                    return StartupParamsItemStatus.NetworkError;
+                case "FEATURE_DISABLED":
+                    return StartupParamsItemStatus.FeatureDisabled;
+                default:
+                    return StartupParamsItemStatus.UnknownError;
+            }
         }
 
         [CanBeNull]
         private static JObject Opt([NotNull] this JObject json, [NotNull] string key) {
-            return json.ObjectValue.GetValueOrDefault(key);
+            return json.ObjectValue.TryGetValue(key, out var value) ? value : null; 
         }
     }
 }

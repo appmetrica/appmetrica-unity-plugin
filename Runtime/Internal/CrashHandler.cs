@@ -5,7 +5,7 @@ namespace Io.AppMetrica.Internal {
         private static bool _isAutoCrashReportingEnabled = true;
         private const string Source = "[AppMetrica] From log using Application.logMessageReceivedThreaded";
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Init() {
             Application.logMessageReceived += HandleLog;
         }

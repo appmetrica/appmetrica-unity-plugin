@@ -17,7 +17,7 @@ namespace Io.AppMetrica.Internal {
 
         [NotNull]
         public static string SerializeDouble(double value) {
-            return double.IsFinite(value) ? value.ToString("F99", CultureInfo.CreateSpecificCulture("en-US")) : "0";
+            return double.IsInfinity(value) | double.IsNaN(value) ? "0" : value.ToString("F99", CultureInfo.CreateSpecificCulture("en-US"));
         }
 
         [NotNull]

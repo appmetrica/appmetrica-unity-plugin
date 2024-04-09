@@ -17,7 +17,7 @@ namespace Io.AppMetrica {
         ///
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
-        public void ClearAppEnvironment();
+        void ClearAppEnvironment();
 
         /// <summary>
         /// Pauses current session.
@@ -25,7 +25,7 @@ namespace Io.AppMetrica {
         ///
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
-        public void PauseSession();
+        void PauseSession();
 
         /// <summary>
         /// Sets key - value pair to be used as additional information, associated with your application runtime environment.
@@ -39,7 +39,7 @@ namespace Io.AppMetrica {
         /// </summary>
         /// <param name="key">the environment key.</param>
         /// <param name="value">the environment value. To remove pair from environment pass <b>null</b> value.</param>
-        public void PutAppEnvironmentValue([NotNull] string key, [CanBeNull] string value);
+        void PutAppEnvironmentValue([NotNull] string key, [CanBeNull] string value);
 
         /// <summary>
         /// Sends information about ad revenue.
@@ -47,7 +47,7 @@ namespace Io.AppMetrica {
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="adRevenue">the <see cref="AdRevenue"/> object. It containing the information about ad revenue.</param>
-        public void ReportAdRevenue([NotNull] AdRevenue adRevenue);
+        void ReportAdRevenue([NotNull] AdRevenue adRevenue);
 
         /// <summary>
         /// Sends e-commerce event.
@@ -55,7 +55,7 @@ namespace Io.AppMetrica {
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="ecommerce">the <see cref="ECommerceEvent"/> object to sent.</param>
-        public void ReportECommerce([NotNull] ECommerceEvent ecommerce);
+        void ReportECommerce([NotNull] ECommerceEvent ecommerce);
 
         /// <summary>
         /// Sends an error. Use this method to report un unexpected situation.
@@ -66,7 +66,7 @@ namespace Io.AppMetrica {
         /// </summary>
         /// <param name="message">short description or name of the error.</param>
         /// <param name="error"><see cref="Exception"/> object for the error.</param>
-        public void ReportError([NotNull] string message, [NotNull] Exception error);
+        void ReportError([NotNull] string message, [NotNull] Exception error);
 
         /// <summary>
         /// Sends an error. Use this method to report un unexpected situation.
@@ -81,7 +81,7 @@ namespace Io.AppMetrica {
         ///                          to avoid having too many small crash groups.</param>
         /// <param name="message">short description or name of the error. Can be null</param>
         /// <param name="error"><see cref="Exception"/> object for the error. Can be null.</param>
-        public void ReportError([NotNull] string identifier, [CanBeNull] string message = null, [CanBeNull] Exception error = null);
+        void ReportError([NotNull] string identifier, [CanBeNull] string message = null, [CanBeNull] Exception error = null);
 
         /// <summary>
         /// Sends report by event name.
@@ -89,7 +89,7 @@ namespace Io.AppMetrica {
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="eventName">short name or description of the event.</param>
-        public void ReportEvent([NotNull] string eventName);
+        void ReportEvent([NotNull] string eventName);
 
         /// <summary>
         /// Sends report by event name and event value.
@@ -98,7 +98,7 @@ namespace Io.AppMetrica {
         /// </summary>
         /// <param name="eventName">short name or description of the event.</param>
         /// <param name="jsonValue">JSON object represented as a string. Maximum level of nesting (for JSON object) - <b>5.</b></param>
-        public void ReportEvent([NotNull] string eventName, [CanBeNull] string jsonValue);
+        void ReportEvent([NotNull] string eventName, [CanBeNull] string jsonValue);
 
         /// <summary>
         /// Sends information about the purchase.
@@ -106,7 +106,7 @@ namespace Io.AppMetrica {
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="revenue">the <see cref="Revenue"/> object. It contains purchase information.</param>
-        public void ReportRevenue([NotNull] Revenue revenue);
+        void ReportRevenue([NotNull] Revenue revenue);
 
         /// <summary>
         /// Sends unhandled exception by <see cref="Exception"/> object.
@@ -114,7 +114,7 @@ namespace Io.AppMetrica {
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="exception"><see cref="Exception"/> object for the unhandled exception</param>
-        public void ReportUnhandledException([NotNull] Exception exception);
+        void ReportUnhandledException([NotNull] Exception exception);
 
         /// <summary>
         /// Sends information about the user profile.
@@ -122,14 +122,14 @@ namespace Io.AppMetrica {
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="profile">the <see cref="UserProfile"/> object. Contains user profile information.</param>
-        public void ReportUserProfile([NotNull] UserProfile profile);
+        void ReportUserProfile([NotNull] UserProfile profile);
 
         /// <summary>
         /// Resumes last session or creates a new one if it has been expired.
         ///
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
-        public void ResumeSession();
+        void ResumeSession();
 
         /// <summary>
         /// Initiates forced sending of all stored events from the buffer.
@@ -140,7 +140,7 @@ namespace Io.AppMetrica {
         ///
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
-        public void SendEventsBuffer();
+        void SendEventsBuffer();
 
         /// <summary>
         /// Enables/disables data sending to the AppMetrica server. By default, the sending is enabled.
@@ -149,7 +149,7 @@ namespace Io.AppMetrica {
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="enabled"><b>true</b> to allow AppMetrica sending data, otherwise <b>false</b>.</param>
-        public void SetDataSendingEnabled(bool enabled);
+        void SetDataSendingEnabled(bool enabled);
 
         /// <summary>
         /// Sets the ID of the user profile.
@@ -158,6 +158,6 @@ namespace Io.AppMetrica {
         /// <p><b>Platforms</b>: Android, iOS.</p>
         /// </summary>
         /// <param name="profileID">the custom user profile ID.</param>
-        public void SetUserProfileID([CanBeNull] string profileID);
+        void SetUserProfileID([CanBeNull] string profileID);
     }
 }

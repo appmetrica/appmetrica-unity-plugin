@@ -35,12 +35,16 @@ namespace Io.AppMetrica.Native.Android.Proxy {
         }
 
         private static DeferredDeeplinkParameters.Error GetError([NotNull] string str) {
-            return str switch {
-                "NoReferrer" => DeferredDeeplinkParameters.Error.NoReferrer,
-                "NotAFirstLaunch" => DeferredDeeplinkParameters.Error.NotAFirstLaunch,
-                "ParseError" => DeferredDeeplinkParameters.Error.ParseError,
-                _ => DeferredDeeplinkParameters.Error.Unknown,
-            };
+            switch (str) {
+                case "NoReferrer":
+                    return DeferredDeeplinkParameters.Error.NoReferrer;
+                case "NotAFirstLaunch":
+                    return DeferredDeeplinkParameters.Error.NotAFirstLaunch;
+                case "ParseError":
+                    return DeferredDeeplinkParameters.Error.ParseError;
+                default:
+                    return DeferredDeeplinkParameters.Error.Unknown;
+            }
         }
     }
 }

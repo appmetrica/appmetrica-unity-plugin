@@ -22,15 +22,22 @@ namespace Io.AppMetrica.Native.Utils.Serializer {
 
         [CanBeNull]
         private static string ToStringValue(this AdType self) {
-            return self switch {
-                AdType.Banner => "Banner",
-                AdType.Interstitial => "Interstitial",
-                AdType.Mrec => "Mrec",
-                AdType.Native => "Native",
-                AdType.Other => "Other",
-                AdType.Rewarded => "Rewarded",
-                _ => null,
-            };
+            switch (self) {
+                case AdType.Banner:
+                    return "Banner";
+                case AdType.Interstitial:
+                    return "Interstitial";
+                case AdType.Mrec:
+                    return "Mrec";
+                case AdType.Native:
+                    return "Native";
+                case AdType.Other:
+                    return "Other";
+                case AdType.Rewarded:
+                    return "Rewarded";
+                default:
+                    return null;
+            }
         }
     }
 }

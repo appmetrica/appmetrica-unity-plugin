@@ -6,72 +6,72 @@ using System.Collections.Generic;
 
 namespace Io.AppMetrica.Native {
     internal interface IAppMetricaNative {
-        public void Activate([NotNull] AppMetricaConfig config);
+        void Activate([NotNull] AppMetricaConfig config);
 
-        public void ActivateReporter([NotNull] ReporterConfig config);
+        void ActivateReporter([NotNull] ReporterConfig config);
 
-        public void ClearAppEnvironment();
-
-        [CanBeNull]
-        public string GetDeviceId();
-
-        [NotNull]
-        public string GetLibraryVersion();
-
-        [NotNull]
-        public IReporter GetReporter([NotNull] string apiKey);
+        void ClearAppEnvironment();
 
         [CanBeNull]
-        public string GetUuid();
+        string GetDeviceId();
 
-        public bool IsActivated();
+        [NotNull]
+        string GetLibraryVersion();
 
-        public void PauseSession();
+        [NotNull]
+        IReporter GetReporter([NotNull] string apiKey);
 
-        public void PutAppEnvironmentValue([NotNull] string key, [CanBeNull] string value);
+        [CanBeNull]
+        string GetUuid();
 
-        public void PutErrorEnvironmentValue([NotNull] string key, [CanBeNull] string value);
+        bool IsActivated();
 
-        public void ReportAdRevenue([NotNull] AdRevenue adRevenue);
+        void PauseSession();
 
-        public void ReportAppOpen([NotNull] string deeplink);
+        void PutAppEnvironmentValue([NotNull] string key, [CanBeNull] string value);
 
-        public void ReportECommerce([NotNull] ECommerceEvent ecommerce);
+        void PutErrorEnvironmentValue([NotNull] string key, [CanBeNull] string value);
 
-        public void ReportError([NotNull] string message, [NotNull] Exception error);
+        void ReportAdRevenue([NotNull] AdRevenue adRevenue);
 
-        public void ReportError([NotNull] string identifier, [CanBeNull] string message, [CanBeNull] Exception error);
+        void ReportAppOpen([NotNull] string deeplink);
 
-        public void ReportEvent([NotNull] string eventName);
+        void ReportECommerce([NotNull] ECommerceEvent ecommerce);
 
-        public void ReportEvent([NotNull] string eventName, [CanBeNull] string jsonValue);
+        void ReportError([NotNull] string message, [NotNull] Exception error);
 
-        public void ReportExceptionFromLog(string condition, string exception, string source);
+        void ReportError([NotNull] string identifier, [CanBeNull] string message, [CanBeNull] Exception error);
 
-        public void ReportExternalAttribution([NotNull] string source, [NotNull] string value);
+        void ReportEvent([NotNull] string eventName);
 
-        public void ReportRevenue([NotNull] Revenue revenue);
+        void ReportEvent([NotNull] string eventName, [CanBeNull] string jsonValue);
 
-        public void ReportUnhandledException([NotNull] Exception exception);
+        void ReportExceptionFromLog(string condition, string exception, string source);
 
-        public void ReportUserProfile([NotNull] UserProfile profile);
+        void ReportExternalAttribution([NotNull] string source, [NotNull] string value);
 
-        public void RequestDeferredDeeplink([NotNull] DeferredDeeplink.DeeplinkDelegate onDeeplinkLoaded, [CanBeNull] DeferredDeeplink.ErrorDelegate onError);
+        void ReportRevenue([NotNull] Revenue revenue);
 
-        public void RequestDeferredDeeplinkParameters([NotNull] DeferredDeeplinkParameters.ParametersDelegate onParametersLoaded, [CanBeNull] DeferredDeeplinkParameters.ErrorDelegate onError);
+        void ReportUnhandledException([NotNull] Exception exception);
 
-        public void RequestStartupParams([NotNull] StartupParamsDelegate action, [NotNull] IEnumerable<string> identifiers);
+        void ReportUserProfile([NotNull] UserProfile profile);
 
-        public void ResumeSession();
+        void RequestDeferredDeeplink([NotNull] DeferredDeeplink.DeeplinkDelegate onDeeplinkLoaded, [CanBeNull] DeferredDeeplink.ErrorDelegate onError);
 
-        public void SendEventsBuffer();
+        void RequestDeferredDeeplinkParameters([NotNull] DeferredDeeplinkParameters.ParametersDelegate onParametersLoaded, [CanBeNull] DeferredDeeplinkParameters.ErrorDelegate onError);
 
-        public void SetDataSendingEnabled(bool enabled);
+        void RequestStartupParams([NotNull] StartupParamsDelegate action, [NotNull] IEnumerable<string> identifiers);
 
-        public void SetLocation([CanBeNull] Location? location);
+        void ResumeSession();
 
-        public void SetLocationTracking(bool enabled);
+        void SendEventsBuffer();
 
-        public void SetUserProfileID([CanBeNull] string userProfileID);
+        void SetDataSendingEnabled(bool enabled);
+
+        void SetLocation([CanBeNull] Location? location);
+
+        void SetLocationTracking(bool enabled);
+
+        void SetUserProfileID([CanBeNull] string userProfileID);
     }
 }
