@@ -88,5 +88,9 @@ AMAAppMetricaConfiguration *amau_deserializeAppMetricaConfiguration(char *json)
         config.userProfileID = dict[@"UserProfileID"];
     }
     
+    if (config.sessionsAutoTracking) {
+        config.handleActivationAsSessionStart = YES;
+    }
+    
     return config;
 }

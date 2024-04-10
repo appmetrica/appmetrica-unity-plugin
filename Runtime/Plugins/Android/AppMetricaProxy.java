@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import io.appmetrica.analytics.AppMetrica;
+import io.appmetrica.analytics.AppMetricaConfig;
 import io.appmetrica.analytics.ModulesFacade;
 import io.appmetrica.analytics.StartupParamsCallback;
 import io.appmetrica.analytics.plugins.PluginErrorDetails;
@@ -19,9 +20,13 @@ public final class AppMetricaProxy {
 
     private AppMetricaProxy() {}
 
-    public static void activate(@NonNull String config) {
+    public static void activate(@NonNull String configStr) {
         try {
-            AppMetrica.activate(getActivity(), AppMetricaConfigSerializer.fromJsonString(config));
+            AppMetricaConfig config = AppMetricaConfigSerializer.fromJsonString(configStr);
+            AppMetrica.activate(getActivity(), config);
+            if (config.sessionsAutoTrackingEnabled == null || config.sessionsAutoTrackingEnabled) {
+                AppMetrica.resumeSession(UnityPlayer.currentActivity);
+            }
         } catch (JSONException e) {
             AppMetricaUnityLogger.e("Failed to activate AppMetrica. Config was parsed with error.", e);
         }
