@@ -8,9 +8,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-#if UNITY_ANDROID
+#if UNITY_ANDROID && !UNITY_EDITOR
 using Io.AppMetrica.Native.Android;
-#elif UNITY_IPHONE || UNITY_IOS
+#elif (UNITY_IPHONE || UNITY_IOS) && !UNITY_EDITOR
 using Io.AppMetrica.Native.Ios;
 #else
 using Io.AppMetrica.Native.Dummy;
@@ -30,9 +30,9 @@ namespace Io.AppMetrica {
         private static readonly IDictionary<string, IReporter> Reporters = new Dictionary<string, IReporter>();
 
         static AppMetrica() {
-#if UNITY_ANDROID
+#if UNITY_ANDROID && !UNITY_EDITOR
             Native = new AppMetricaAndroid();
-#elif UNITY_IPHONE || UNITY_IOS
+#elif (UNITY_IPHONE || UNITY_IOS) && !UNITY_EDITOR
             Native = new AppMetricaIos();
 #else
             Native = new AppMetricaDummy();
