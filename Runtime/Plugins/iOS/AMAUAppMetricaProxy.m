@@ -36,7 +36,11 @@ void amau_activate(char *configJson)
             }
         }
         
-        [AMAAppMetrica activateWithConfiguration:config];
+        if (AMAAppMetrica.isActivated) {
+            NSLog(@"Skip AppMetrica activate. AppMetrica has already been started");
+        } else {
+            [AMAAppMetrica activateWithConfiguration:config];
+        }
         [[AMAAppMetricaCrashes crashes] setConfiguration: amau_deserializeAppMetricaCrashesConfiguration(configJson)];
         [[[AMAAppMetricaCrashes crashes] pluginExtension] handlePluginInitFinished];
     } else {

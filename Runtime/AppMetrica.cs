@@ -17,6 +17,8 @@ using Io.AppMetrica.Native.Dummy;
 #endif
 
 namespace Io.AppMetrica {
+    public delegate void ActivationListener([NotNull] AppMetricaConfig config);
+    
     /// <summary>
     /// Class assistant for analytic processing.
     /// </summary>
@@ -28,6 +30,10 @@ namespace Io.AppMetrica {
         private static readonly object ReportersLock = new Object();
         [NotNull]
         private static readonly IDictionary<string, IReporter> Reporters = new Dictionary<string, IReporter>();
+
+        [CanBeNull]
+        public static AppMetricaConfig ActivationConfig;
+        public static event ActivationListener OnActivation;
 
         static AppMetrica() {
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -49,6 +55,8 @@ namespace Io.AppMetrica {
             Native.Activate(config);
             _isActivated = true;
             CrashHandler.SetAutoCrashReporting(config.CrashReporting);
+            ActivationConfig = config;
+            OnActivation?.Invoke(config);
         }
 
         /// <summary>
@@ -266,7 +274,7 @@ namespace Io.AppMetrica {
                 Native.ReportExternalAttribution(externalAttribution.Source, externalAttribution.Value);
             }
         }
-        
+
         /// <summary>
         /// Sends information about the purchase.
         ///

@@ -1,3 +1,4 @@
+using Io.AppMetrica.Native.Utils.Serializer;
 using JetBrains.Annotations;
 using System.Collections.Generic;
 
@@ -224,6 +225,11 @@ namespace Io.AppMetrica {
         /// <param name="apiKey">Application key that is issued during application registration in AppMetrica.</param>
         public AppMetricaConfig([NotNull] string apiKey) {
             ApiKey = apiKey;
+        }
+
+        [NotNull]
+        public string ToJsonString() {
+            return AppMetricaConfigSerializer.ToJsonString(this);
         }
     }
 }
