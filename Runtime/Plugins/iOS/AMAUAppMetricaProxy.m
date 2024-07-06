@@ -21,13 +21,6 @@ void amau_activate(char *configJson)
     if (config != nil) {
         // pre-processing of the config
         NSDictionary *dict = amau_dictionaryFromCString(configJson);
-        // put AppEnvironment from config
-        if (dict[@"AppEnvironment"] != nil) {
-            NSDictionary *env = dict[@"AppEnvironment"];
-            for (NSString *key in env) {
-                [AMAAppMetrica setAppEnvironmentValue:env[key] forKey:key];
-            }
-        }
         // put ErrorEnvironment from config
         if (dict[@"ErrorEnvironment"] != nil) {
             NSDictionary *env = dict[@"ErrorEnvironment"];

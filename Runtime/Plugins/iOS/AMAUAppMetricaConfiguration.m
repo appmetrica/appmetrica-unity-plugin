@@ -42,6 +42,9 @@ AMAAppMetricaConfiguration *amau_deserializeAppMetricaConfiguration(char *json)
     if (dict[@"AppBuildNumber"] != nil) {
         config.appBuildNumber = [dict[@"AppBuildNumber"] stringValue];
     }
+    if (dict[@"AppEnvironment"] != nil) {
+        config.appEnvironment = dict[@"AppEnvironment"];
+    }
     if (dict[@"AppOpenTrackingEnabled"] != nil) {
         config.appOpenTrackingEnabled = [dict[@"AppOpenTrackingEnabled"] boolValue];
     }
