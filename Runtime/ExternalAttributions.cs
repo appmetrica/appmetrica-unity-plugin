@@ -58,6 +58,16 @@ namespace Io.AppMetrica {
             return new ExternalAttribution("Airbridge", value);
         }
 
+        /// <summary>
+        /// Create an object of <see cref="ExternalAttribution"/> class with Singular attribution.
+        /// </summary>
+        /// <param name="value">data from Singular library.</param>
+        /// <returns><see cref="ExternalAttribution"/> object with Singular attribution.</returns>
+        [NotNull]
+        public static ExternalAttribution Singular([CanBeNull] Dictionary<string, object> value) {
+            return new ExternalAttribution("Singular", JSONEncoder.Encode(value));
+        }
+
         [CanBeNull]
         private static string ObjectToJsonString([CanBeNull] object value) {
             if (value == null) return null;

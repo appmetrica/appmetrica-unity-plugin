@@ -6,7 +6,7 @@ AMAAttributionSource amau_getExternalAttributionSource(char *source)
 {
     NSString *sourceStr = amau_stringFromCString(source);
     if (sourceStr == nil) return nil;
-    
+
 
     if ([sourceStr isEqualToString:@"AppsFlyer"]) {
         return kAMAAttributionSourceAppsflyer;
@@ -23,6 +23,9 @@ AMAAttributionSource amau_getExternalAttributionSource(char *source)
     if ([sourceStr isEqualToString:@"Airbridge"]) {
         return kAMAAttributionSourceAirbridge;
     }
-    
+    if ([sourceStr isEqualToString:@"Singular"]) {
+        return kAMAAttributionSourceSingular;
+    }
+
     return nil;
 }

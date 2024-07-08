@@ -19,6 +19,8 @@ final class ExternalAttributionSerializer {
                 return ModulesFacade.EXTERNAL_ATTRIBUTION_TENJIN;
             case "Airbridge":
                 return ModulesFacade.EXTERNAL_ATTRIBUTION_AIRBRIDGE;
+            case "Singular":
+                return ModulesFacade.EXTERNAL_ATTRIBUTION_SINGULAR;
             default:
                 return -1;
         }
