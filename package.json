@@ -24,6 +24,6 @@
     "ecommerce"
   ],
   "dependencies": {
-      "com.google.external-dependency-manager": "1.2.177"
+      "com.google.external-dependency-manager": "1.2.183"
   }
 }
