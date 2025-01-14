@@ -6,6 +6,8 @@
   "Editor/AppMetrica.Editor.asmdef.meta":"mobile/metrika/unity/appmetrica-plugin/Editor/AppMetrica.Editor.asmdef.meta",
   "Editor/AppMetricaDependencies.xml":"mobile/metrika/unity/appmetrica-plugin/Editor/AppMetricaDependencies.xml",
   "Editor/AppMetricaDependencies.xml.meta":"mobile/metrika/unity/appmetrica-plugin/Editor/AppMetricaDependencies.xml.meta",
+  "Editor/ManifestProcessor.cs":"mobile/metrika/unity/appmetrica-plugin/Editor/ManifestProcessor.cs",
+  "Editor/ManifestProcessor.cs.meta":"mobile/metrika/unity/appmetrica-plugin/Editor/ManifestProcessor.cs.meta",
   "LICENSE.md":"mobile/metrika/unity/appmetrica-plugin/LICENSE.md",
   "LICENSE.md.meta":"mobile/metrika/unity/appmetrica-plugin/LICENSE.md.meta",
   "README.md":"mobile/metrika/unity/appmetrica-plugin/README.md",
