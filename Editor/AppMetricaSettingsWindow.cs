@@ -58,12 +58,12 @@ namespace Io.AppMetrica.Editor {
 
             internal void Save() {
                 try {
-                    AppMetricaResolver.DisableWatcher();
+                    AppMetricaSettings.DisableWatcher();
                     AppMetricaResolver.SupportedFeatures[SupportedFeatureNames.AppHudAdapter].IsEnabled =
                         IsAppHudEnabled;
                     AppMetricaResolver.OnSettingsChanged();
                 } finally {
-                    AppMetricaResolver.EnableWatcher();
+                    AppMetricaSettings.EnableWatcher();
                 } 
             }
         }

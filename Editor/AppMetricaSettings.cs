@@ -7,7 +7,7 @@ using System.Xml;
 using UnityEngine;
 
 namespace Io.AppMetrica.Editor {
-    internal class AppMetricaSettings {
+    internal static class AppMetricaSettings {
         
         private const string Filename = "ProjectSettings/AppMetricaSettings.xml";
         private static Dictionary<string, string> _inMemoryStorage;
@@ -17,12 +17,12 @@ namespace Io.AppMetrica.Editor {
             "AppMetricaSettings.xml"
         );
 
-        public AppMetricaSettings() {
+        static AppMetricaSettings() {
             CreateFileIfNotExist();
             StartSettingsWatcher();
         }
 
-        public void SetInt(string name, int value) {
+        public static void SetInt(string name, int value) {
             lock (LockObject) {
                 LoadIfEmpty();
                 _inMemoryStorage[name] = value.ToString();
@@ -30,7 +30,7 @@ namespace Io.AppMetrica.Editor {
             }
         }
 
-        public void SetBool(string name, bool value) {
+        public static void SetBool(string name, bool value) {
             lock (LockObject) {
                 LoadIfEmpty();
                 _inMemoryStorage[name] = value.ToString();
@@ -38,7 +38,7 @@ namespace Io.AppMetrica.Editor {
             }
         }
 
-        public void SetFloat(string name, float value) {
+        public static void SetFloat(string name, float value) {
             lock (LockObject) {
                 LoadIfEmpty();
                 _inMemoryStorage[name] = value.ToString(CultureInfo.InvariantCulture);
@@ -46,7 +46,7 @@ namespace Io.AppMetrica.Editor {
             }
         }
 
-        public void SetString(string name, string value) {
+        public static void SetString(string name, string value) {
             lock (LockObject) {
                 LoadIfEmpty();
                 _inMemoryStorage[name] = value;
@@ -54,35 +54,35 @@ namespace Io.AppMetrica.Editor {
             }
         }
 
-        public int GetInt(string name, int defaultValue = 0) {
+        public static int GetInt(string name, int defaultValue = 0) {
             LoadIfEmpty();
             return int.TryParse(GetString(name, defaultValue.ToString()), out var result) ? result : defaultValue;
         }
 
-        public bool GetBool(string name, bool defaultValue = false) {
+        public static bool GetBool(string name, bool defaultValue = false) {
             LoadIfEmpty();
             return bool.TryParse(GetString(name, defaultValue.ToString()), out var result) ? result : defaultValue;
         }
 
-        public float GetFloat(string name, float defaultValue = 0.0f) {
+        public static float GetFloat(string name, float defaultValue = 0.0f) {
             LoadIfEmpty();
             return float.TryParse(GetString(name, defaultValue.ToString(CultureInfo.InvariantCulture)), out var result) ? result : defaultValue;
         }
 
-        public string GetString(string name, string defaultValue = "") {
+        public static string GetString(string name, string defaultValue = "") {
             lock (LockObject) {
                 LoadIfEmpty();
                 return _inMemoryStorage.GetValueOrDefault(name, defaultValue);
             }
         }
         
-        internal void DisableWatcher() {
+        internal static void DisableWatcher() {
             if (Watcher != null) {
                 Watcher.EnableRaisingEvents = false;
             }
         }
         
-        internal void EnableWatcher() {
+        internal static void EnableWatcher() {
             if (Watcher != null) {
                 Watcher.EnableRaisingEvents = true;
             }
@@ -156,7 +156,7 @@ namespace Io.AppMetrica.Editor {
             }
         }
         
-        private void CreateFileIfNotExist() {
+        private static void CreateFileIfNotExist() {
             lock (LockObject) {
                 if (!File.Exists(Filename)) {
                     Save();
@@ -164,7 +164,7 @@ namespace Io.AppMetrica.Editor {
             }
         }
         
-        private void StartSettingsWatcher() {
+        private static void StartSettingsWatcher() {
             Watcher.NotifyFilter = NotifyFilters.LastWrite;
             Watcher.EnableRaisingEvents = true;
             Watcher.Changed += (sender, eventArgs) => {

@@ -6,14 +6,11 @@ using GooglePlayServices;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Io.AppMetrica.Editor {
     internal static class AppMetricaResolver {
 
         private const string TAG = "AppMetricaResolver";
-
-        private static readonly AppMetricaSettings Settings = new AppMetricaSettings();
 
         private static readonly NamedBuildTarget[] SupportedBuildTargets = {
             NamedBuildTarget.iOS,
@@ -36,14 +33,6 @@ namespace Io.AppMetrica.Editor {
             PlayServicesResolver.Resolve(forceResolution: true);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-        }
-
-        internal static void DisableWatcher() {
-            Settings.DisableWatcher();
-        }
-        
-        internal static void EnableWatcher() {
-            Settings.EnableWatcher();
         }
         
         private static void UpdateDependencyState(string name, bool isEnabled) {
@@ -74,8 +63,7 @@ namespace Io.AppMetrica.Editor {
         private static void ApplyDefines() {
             foreach (var supportedTarget in SupportedBuildTargets) {
                 PlayerSettings.GetScriptingDefineSymbols(supportedTarget, out var currentDefines);
-                var enabledDefines =
-                    SupportedFeatures.Values
+                var enabledDefines = SupportedFeatures.Values
                         .Where(feature => feature.IsEnabled)
                         .Select(feature => feature.DefineName)
                         .ToArray();
@@ -102,8 +90,8 @@ namespace Io.AppMetrica.Editor {
         internal class SupportedFeature {
             internal readonly string DefineName;
             internal bool IsEnabled {
-                get => Settings.GetBool(SupportedFeatures.FirstOrDefault(x => x.Value == this).Key);
-                set => Settings.SetBool(SupportedFeatures.FirstOrDefault(x => x.Value == this).Key, value);
+                get => AppMetricaSettings.GetBool(GetFeatureNameForSettings());
+                set => AppMetricaSettings.SetBool(GetFeatureNameForSettings(), value);
             }
 
             internal readonly Action<SupportedFeature> OnChangedAction;
@@ -114,10 +102,14 @@ namespace Io.AppMetrica.Editor {
             }
         
             public SupportedFeature(string defineName) : this(defineName, (_) => {}) {}
+
+            private string GetFeatureNameForSettings() {
+                return $"Feature.{SupportedFeatures.FirstOrDefault(x => x.Value == this).Key}.Enabled";
+            }
         }
     }
 
     internal static class SupportedFeatureNames {
-        internal const string AppHudAdapter = "Feature.AppHudAdapterEnabled";
+        internal const string AppHudAdapter = "AppHudAdapter";
     }
 }
