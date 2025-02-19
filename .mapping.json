@@ -1,4 +1,5 @@
 {
+  ".":"mobile/metrika/unity/appmetrica-plugin",
   "CONTRIBUTING.md":"mobile/metrika/unity/appmetrica-plugin/CONTRIBUTING.md",
   "CONTRIBUTING.md.meta":"mobile/metrika/unity/appmetrica-plugin/CONTRIBUTING.md.meta",
   "Editor.meta":"mobile/metrika/unity/appmetrica-plugin/Editor.meta",
