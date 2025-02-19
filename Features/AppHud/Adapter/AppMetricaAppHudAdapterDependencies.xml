@@ -3,7 +3,7 @@
 <!--Add this file to your Version Control System(Git, SVN etc.)-->
 <dependencies>
     <androidPackages>
-        <androidPackage spec="io.appmetrica.analytics:analytics-apphud:7.5.0"/>
+        <androidPackage spec="io.appmetrica.analytics:analytics-apphud:7.7.0"/>
     </androidPackages>
     <iosPods>
         <iosPod name="AppMetricaApphudAdapter" version="1.0.0"/>
