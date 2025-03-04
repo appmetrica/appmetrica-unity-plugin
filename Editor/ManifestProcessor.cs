@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Io.AppMetrica.Editor {
     internal class ManifestProcessor : IPostGenerateGradleAndroidProject {
-        private const string VERSION = "6.4.0";
+        private const string VERSION = "6.5.0";
 
         public int callbackOrder { get { return 0; } }
         
