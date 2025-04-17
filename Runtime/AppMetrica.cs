@@ -184,7 +184,7 @@ namespace Io.AppMetrica {
         /// </summary>
         /// <param name="adRevenue">the information about ad revenue.</param>
         public static void ReportAdRevenue([NotNull] AdRevenue adRevenue) {
-            Native.ReportAdRevenue(adRevenue);
+            Native.ReportAdRevenue(adRevenue, autoCollected: false);
         }
 
         /// <summary>
@@ -442,6 +442,10 @@ namespace Io.AppMetrica {
 
         internal static void ReportExceptionFromLog(string condition, string exception, string source) {
             Native.ReportExceptionFromLog(condition, exception, source);
+        }
+        
+        internal static void ReportAutoCollectedAdRevenue(AdRevenue adRevenue) {
+            Native.ReportAdRevenue(adRevenue, autoCollected: true);
         }
     }
 }

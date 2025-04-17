@@ -59,8 +59,8 @@ namespace Io.AppMetrica.Native.Android {
             AppMetricaProxy.PutErrorEnvironmentValue(key, value);
         }
 
-        public void ReportAdRevenue([NotNull] AdRevenue adRevenue) {
-            AppMetricaProxy.ReportAdRevenue(adRevenue.ToJsonString());
+        public void ReportAdRevenue([NotNull] AdRevenue adRevenue, bool autoCollected) {
+            AppMetricaProxy.ReportAdRevenue(adRevenue.ToJsonString(), autoCollected);
         }
 
         public void ReportAppOpen([NotNull] string deeplink) {

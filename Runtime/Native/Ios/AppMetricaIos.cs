@@ -59,7 +59,7 @@ namespace Io.AppMetrica.Native.Ios {
             AppMetricaProxy.amau_putErrorEnvironmentValue(key, value);
         }
 
-        public void ReportAdRevenue([NotNull] AdRevenue adRevenue) {
+        public void ReportAdRevenue([NotNull] AdRevenue adRevenue, bool autoCollected) {
             AppMetricaProxy.amau_reportAdRevenue(adRevenue.ToJsonString());
         }
 

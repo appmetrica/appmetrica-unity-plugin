@@ -49,8 +49,8 @@ namespace Io.AppMetrica.Native.Android.Proxy {
             NativeClass.CallStatic("putErrorEnvironmentValue", key, value);
         }
 
-        public static void ReportAdRevenue([NotNull] string adRevenue) {
-            NativeClass.CallStatic("reportAdRevenue", adRevenue);
+        public static void ReportAdRevenue([NotNull] string adRevenue, bool autoCollected) {
+            NativeClass.CallStatic("reportAdRevenue", adRevenue, autoCollected);
         }
 
         public static void ReportAppOpen([NotNull] string deeplink) {

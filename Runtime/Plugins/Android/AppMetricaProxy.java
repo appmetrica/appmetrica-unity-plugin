@@ -75,9 +75,9 @@ public final class AppMetricaProxy {
         AppMetrica.putErrorEnvironmentValue(key, value);
     }
 
-    public static void reportAdRevenue(@NonNull String adRevenue) {
+    public static void reportAdRevenue(@NonNull String adRevenue, boolean autoCollected) {
         try {
-            AppMetrica.reportAdRevenue(AdRevenueSerializer.fromJsonString(adRevenue));
+            ModulesFacade.reportAdRevenue(AdRevenueSerializer.fromJsonString(adRevenue), autoCollected);
         } catch (JSONException e) {
             AppMetricaUnityLogger.e("Failed to report AdRevenue. Data was parsed with error", e);
         }

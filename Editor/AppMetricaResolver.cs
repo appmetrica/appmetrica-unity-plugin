@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using GooglePlayServices;
+using Io.AppMetrica.Editor.Features;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEngine;
@@ -17,16 +17,18 @@ namespace Io.AppMetrica.Editor {
             NamedBuildTarget.Android,
         };
 
-        internal static readonly Dictionary<string, SupportedFeature> SupportedFeatures = new Dictionary<string, SupportedFeature>()
+        internal static readonly Dictionary<string, Feature> SupportedFeatures = new Dictionary<string, Feature>
         {
-            [SupportedFeatureNames.AppHudAdapter] = new SupportedFeature("APPMETRICA_APPHUD_ADAPTER_ENABLED", feature => {
-                UpdateDependencyState("AppMetricaAppHudAdapterDependencies", feature.IsEnabled);
-            }),
+            [SupportedFeatureNames.AppHudAdapter] = new AppHudAdapter("AppHudAdapter"),
+            [SupportedFeatureNames.AppLovinAdRevenueV8] = new AppLovinAdRevenueV8("AppLovinAdRevenueV8"),
+            [SupportedFeatureNames.IronSourceAdRevenueV8] = new IronSourceAdRevenueV8("IronSourceAdRevenueV8"),
+            [SupportedFeatureNames.FyberAdRevenueV3] = new FyberAdRevenueV3("FyberAdRevenueV3"),
+            [SupportedFeatureNames.TopOnAdRevenueV2] = new TopOnAdRevenueV2("TopOnAdRevenueV2"),
         };
 
-        public static void OnSettingsChanged() {
+        internal static void OnSettingsChanged() {
             foreach (var feature in SupportedFeatures.Values) {
-                feature.OnChangedAction(feature);
+                feature.OnChangedAction();
             }
             
             ApplyDefines();
@@ -35,7 +37,7 @@ namespace Io.AppMetrica.Editor {
             AssetDatabase.Refresh();
         }
         
-        private static void UpdateDependencyState(string name, bool isEnabled) {
+        internal static void UpdateDependencyState(string name, bool isEnabled) {
             string[] assets = AssetDatabase.FindAssets(name);
 
             if (assets.Length == 0) {
@@ -64,18 +66,30 @@ namespace Io.AppMetrica.Editor {
             foreach (var supportedTarget in SupportedBuildTargets) {
                 PlayerSettings.GetScriptingDefineSymbols(supportedTarget, out var currentDefines);
                 var enabledDefines = SupportedFeatures.Values
-                        .Where(feature => feature.IsEnabled)
-                        .Select(feature => feature.DefineName)
-                        .ToArray();
+                    .Where(feature => feature.IsEnabled)
+                    .Select(feature => feature.DefineName)
+                    .ToArray();
+
+                var autoEnabledDefines = SupportedFeatures.Values
+                    .Where(feature => feature.IsAutoEnabled)
+                    .Select(feature => feature.AutoEnabledDefineName)
+                    .ToArray();
                 
                 var disabledDefines = SupportedFeatures.Values
-                    .Where(feature => !feature.IsEnabled)
+                    .Where(feature => !feature.IsManualEnabled)
                     .Select(feature => feature.DefineName)
+                    .ToArray();
+                
+                var autoDisabledDefines = SupportedFeatures.Values
+                    .Where(feature => !feature.IsAutoEnabled)
+                    .Select(feature => feature.AutoEnabledDefineName)
                     .ToArray();
 
                 var newDefines = currentDefines
                     .Union(enabledDefines)
+                    .Union(autoEnabledDefines)
                     .Except(disabledDefines)
+                    .Except(autoDisabledDefines)
                     .ToArray();
 
                 PlayerSettings.SetScriptingDefineSymbols(supportedTarget, newDefines);
@@ -86,30 +100,13 @@ namespace Io.AppMetrica.Editor {
         private static void Log(string message) {
             Debug.Log($"{TAG}: {message}");
         }
-        
-        internal class SupportedFeature {
-            internal readonly string DefineName;
-            internal bool IsEnabled {
-                get => AppMetricaSettings.GetBool(GetFeatureNameForSettings());
-                set => AppMetricaSettings.SetBool(GetFeatureNameForSettings(), value);
-            }
-
-            internal readonly Action<SupportedFeature> OnChangedAction;
-
-            public SupportedFeature(string defineName, Action<SupportedFeature> onChangedAction) {
-                DefineName = defineName;
-                OnChangedAction = onChangedAction;
-            }
-        
-            public SupportedFeature(string defineName) : this(defineName, (_) => {}) {}
-
-            private string GetFeatureNameForSettings() {
-                return $"Feature.{SupportedFeatures.FirstOrDefault(x => x.Value == this).Key}.Enabled";
-            }
-        }
     }
 
     internal static class SupportedFeatureNames {
-        internal const string AppHudAdapter = "AppHudAdapter";
+        internal const string AppHudAdapter = nameof(AppHudAdapter);
+        internal const string AppLovinAdRevenueV8 = nameof(AppLovinAdRevenueV8);
+        internal const string IronSourceAdRevenueV8 = nameof(IronSourceAdRevenueV8);
+        internal const string FyberAdRevenueV3 = nameof(FyberAdRevenueV3);
+        internal const string TopOnAdRevenueV2 = nameof(TopOnAdRevenueV2);
     }
 }

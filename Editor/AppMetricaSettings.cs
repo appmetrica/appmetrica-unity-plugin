@@ -88,6 +88,14 @@ namespace Io.AppMetrica.Editor {
             }
         }
 
+        internal static void RemoveKey(string key) {
+            lock (LockObject) {
+                if (_inMemoryStorage.Remove(key)) {
+                    Save();
+                }
+            }
+        }
+
         private static void Load() {
             lock (LockObject) {
                 try {

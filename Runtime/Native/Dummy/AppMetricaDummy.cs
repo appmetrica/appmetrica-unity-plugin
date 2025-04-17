@@ -32,7 +32,7 @@ namespace Io.AppMetrica.Native.Dummy {
 
         public void PutErrorEnvironmentValue([NotNull] string key, [CanBeNull] string value) { }
 
-        public void ReportAdRevenue([NotNull] AdRevenue adRevenue) { }
+        public void ReportAdRevenue([NotNull] AdRevenue adRevenue, bool autoCollected) { }
 
         public void ReportAppOpen([NotNull] string deeplink) { }
 

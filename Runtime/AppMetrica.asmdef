@@ -1,7 +1,12 @@
 {
     "name": "AppMetrica",
     "rootNamespace": "Io.AppMetrica",
-    "references": [],
+    "references": [
+        "TpnPlugin.AnyThinkAds",
+        "Unity.LevelPlay",
+        "Fyber.FairBid.API",
+        "MaxSdk.Scripts"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
