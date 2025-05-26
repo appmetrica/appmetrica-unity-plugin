@@ -15,19 +15,19 @@ namespace Io.AppMetrica.Editor.Features {
         internal bool IsManualEnabled {
             get {
                 var settingsValue = AppMetricaSettings.GetString(GetFeatureKeyForSettings());
-                return settingsValue == FeatureState.Manual.ToString() || settingsValue == FeatureState.True.ToString();
+                return settingsValue == nameof(FeatureState.Manual) || settingsValue == nameof(FeatureState.True);
             }
             set {
-                var settingsValue = value ? FeatureState.Manual.ToString() : FeatureState.False.ToString();
+                var settingsValue = value ? nameof(FeatureState.Manual) : nameof(FeatureState.False);
                 AppMetricaSettings.SetString(GetFeatureKeyForSettings(), settingsValue);
             }
         }
 
         internal bool IsAutoEnabled {
-            get => AppMetricaSettings.GetString(GetFeatureKeyForSettings()) == FeatureState.Auto.ToString();
+            get => AppMetricaSettings.GetString(GetFeatureKeyForSettings()) == nameof(FeatureState.Auto);
             private set {
                 if (value) {
-                    AppMetricaSettings.SetString(GetFeatureKeyForSettings(), FeatureState.Auto.ToString());
+                    AppMetricaSettings.SetString(GetFeatureKeyForSettings(), nameof(FeatureState.Auto));
                 }
             }
         }

@@ -1,20 +1,25 @@
-using UnityEditor;
 using UnityEditor.Android;
-using UnityEngine;
 using System.IO;
 using System.Xml;
 using System.Text;
+using Io.AppMetrica.Editor.Features.Utils;
 
 namespace Io.AppMetrica.Editor {
     internal class ManifestProcessor : IPostGenerateGradleAndroidProject {
         private const string VERSION = "6.5.0";
+        private const string APPMETRICA_NAMESPACE = "io.appmetrica.analytics";
 
         public int callbackOrder { get { return 0; } }
         
         public void OnPostGenerateGradleAndroidProject(string path) {
             var manifest = new AndroidManifest(Path.Combine(path, "src", "main", "AndroidManifest.xml"));
-            manifest.SetMetaData("io.appmetrica.analytics.plugin_id", "unity-" + VERSION);
+            manifest.SetMetaData(GetMetadataKey("plugin_id"), "unity-" + VERSION);
+            manifest.SetMetaData(GetMetadataKey("plugin_supported_ad_revenue_sources"), FeatureUtils.GetAdRevenueSources());
             manifest.Save();
+        }
+
+        private string GetMetadataKey(string name) {
+            return $"{APPMETRICA_NAMESPACE}.{name}";
         }
     }
 

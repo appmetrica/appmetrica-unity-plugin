@@ -1,3 +1,5 @@
+using Io.AppMetrica.Editor.Features.Utils;
+
 namespace Io.AppMetrica.Editor.Features {
     internal class AppLovinAdRevenueV8 : Feature {
         public AppLovinAdRevenueV8(string featureName) : base(featureName) {}

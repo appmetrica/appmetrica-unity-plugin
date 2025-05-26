@@ -4,12 +4,6 @@ namespace Io.AppMetrica.Editor.Features {
 
         internal override string DefineName => "APPMETRICA_FEATURES_ADREVENUE_FYBER_V3";
 
-        internal override bool IsAutoEnableable => true;
-
-        internal override void AutoEnableFeatureIfAvailable() {
-            if (FeatureUtils.IsAssetInProject("ImpressionData")) {
-                AutoEnableFeatureIfNeeded();
-            }
-        }
+        internal override bool IsAutoEnableable => false;
     }
 }

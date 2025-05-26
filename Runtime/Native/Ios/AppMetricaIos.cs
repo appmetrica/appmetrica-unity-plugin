@@ -60,7 +60,7 @@ namespace Io.AppMetrica.Native.Ios {
         }
 
         public void ReportAdRevenue([NotNull] AdRevenue adRevenue, bool autoCollected) {
-            AppMetricaProxy.amau_reportAdRevenue(adRevenue.ToJsonString());
+            AppMetricaProxy.amau_reportAdRevenue(adRevenue.ToJsonString(), autoCollected);
         }
 
         public void ReportAppOpen([NotNull] string deeplink) {

@@ -11,7 +11,7 @@ bool amau_isActivated();
 void amau_pauseSession();
 void amau_putAppEnvironmentValue(char *key, char *value);
 void amau_putErrorEnvironmentValue(char *key, char *value);
-void amau_reportAdRevenue(char *adRevenueJson);
+void amau_reportAdRevenue(char *adRevenueJson, bool autoCollected);
 void amau_reportAppOpen(char *deeplink);
 void amau_reportECommerce(char *eCommerceJson);
 void amau_reportErrorWithoutIdentifier(char *message, char *error);

@@ -1,6 +1,7 @@
 
 #import <AppMetricaCore/AppMetricaCore.h>
 #import <AppMetricaCrashes/AppMetricaCrashes.h>
+#import <AppMetricaCoreExtension/AMAAppMetricaExtended.h>
 #import "AMAUAppMetricaProxy.h"
 #import "AMAUAdRevenueInfo.h"
 #import "AMAUAppMetricaConfiguration.h"
@@ -102,11 +103,13 @@ void amau_putErrorEnvironmentValue(char *key, char *value)
     [[AMAAppMetricaCrashes crashes] setErrorEnvironmentValue:amau_stringFromCString(value) forKey:amau_stringFromCString(key)];
 }
 
-void amau_reportAdRevenue(char *adRevenueJson)
+void amau_reportAdRevenue(char *adRevenueJson, bool autoCollected)
 {
     AMAAdRevenueInfo *adRevenue = amau_deserializeAdRevenueInfo(adRevenueJson);
     if (adRevenue != nil) {
-        [AMAAppMetrica reportAdRevenue:adRevenue onFailure:^(NSError *error) {
+        [AMAAppMetrica reportAdRevenue:adRevenue
+                       isAutocollected:autoCollected
+                             onFailure:^(NSError *error) {
             NSLog(@"Failed to report AdRevenue to AppMetrica: %@", [error localizedDescription]);
         }];
     } else {

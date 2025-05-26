@@ -1,3 +1,5 @@
+using Io.AppMetrica.Editor.Features.Utils;
+
 namespace Io.AppMetrica.Editor.Features {
     internal class IronSourceAdRevenueV8 : Feature {
         public IronSourceAdRevenueV8(string featureName) : base(featureName) {}

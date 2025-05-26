@@ -39,7 +39,7 @@ namespace Io.AppMetrica.Native.Ios.Proxy {
         public static extern void amau_putErrorEnvironmentValue([NotNull] string key, [CanBeNull] string value);
 
         [DllImport("__Internal")]
-        public static extern void amau_reportAdRevenue([NotNull] string adRevenue);
+        public static extern void amau_reportAdRevenue([NotNull] string adRevenue, bool autoCollected);
 
         [DllImport("__Internal")]
         public static extern void amau_reportAppOpen([NotNull] string deeplink);

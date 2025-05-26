@@ -76,7 +76,7 @@ namespace Io.AppMetrica.Editor {
                     .ToArray();
                 
                 var disabledDefines = SupportedFeatures.Values
-                    .Where(feature => !feature.IsManualEnabled)
+                    .Where(feature => !feature.IsEnabled)
                     .Select(feature => feature.DefineName)
                     .ToArray();
                 
