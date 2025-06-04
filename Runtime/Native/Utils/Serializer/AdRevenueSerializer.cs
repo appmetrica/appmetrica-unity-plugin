@@ -35,6 +35,8 @@ namespace Io.AppMetrica.Native.Utils.Serializer {
                     return "Other";
                 case AdType.Rewarded:
                     return "Rewarded";
+                case AdType.AppOpen:
+                    return "AppOpen";
                 default:
                     return null;
             }

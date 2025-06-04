@@ -58,6 +58,8 @@ namespace Io.AppMetrica.Features.AdRevenue.AppLovin.V8 {
                     return AdType.Interstitial;
                 case "MREC":
                     return AdType.Mrec;
+                case "APPOPEN":
+                    return AdType.AppOpen;
                 default:
                     return AdType.Other;
             }

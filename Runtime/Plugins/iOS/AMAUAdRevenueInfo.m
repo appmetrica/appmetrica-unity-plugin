@@ -26,6 +26,9 @@ AMAAdType amau_adTypeFromString(NSString *adType)
     if ([adType isEqualToString:@"Other"]) {
         return AMAAdTypeOther;
     }
+    if ([adType isEqualToString:@"AppOpen"]) {
+        return AMAAdTypeAppOpen;
+    }
 
     return AMAAdTypeUnknown;
 }

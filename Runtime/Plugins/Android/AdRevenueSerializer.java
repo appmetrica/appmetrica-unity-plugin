@@ -66,6 +66,8 @@ final class AdRevenueSerializer {
                 return AdType.OTHER;
             case "Rewarded":
                 return AdType.REWARDED;
+            case "AppOpen":
+                return AdType.APP_OPEN;    
             default:
                 return null;
         }

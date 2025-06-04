@@ -143,6 +143,11 @@ namespace Io.AppMetrica {
     /// <seealso cref="AdRevenue.AdType"/>
     public enum AdType {
         /// <summary>
+        /// App Open Ad Type.
+        /// </summary>
+        AppOpen,
+        
+        /// <summary>
         /// Banner Ad Type.
         /// </summary>
         Banner,
