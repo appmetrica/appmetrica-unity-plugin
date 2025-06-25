@@ -11,7 +11,6 @@ namespace Io.AppMetrica.Features.AdRevenue.AppLovin.V8 {
             MaxSdkCallbacks.AppOpen.OnAdRevenuePaidEvent += ReportAppLovinAdRevenue;
             MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += ReportAppLovinAdRevenue;
             MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent += ReportAppLovinAdRevenue;
-            MaxSdkCallbacks.RewardedInterstitial.OnAdRevenuePaidEvent += ReportAppLovinAdRevenue;
             MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent += ReportAppLovinAdRevenue;
             MaxSdkCallbacks.MRec.OnAdRevenuePaidEvent += ReportAppLovinAdRevenue;
         }
