@@ -76,7 +76,13 @@ namespace Io.AppMetrica {
         public bool? DataSendingEnabled { get; set; }
 
         /// <summary>
-        /// Device type based on screen size: phone, tablet, TV.
+        /// The device type based on screen size.
+        /// <p>
+        /// Allowed values are from native android SDK from class PredefinedDeviceTypes.
+        /// See https://github.com/appmetrica/appmetrica-sdk-android/blob/main/analytics/src/main/java/io/appmetrica/analytics/PredefinedDeviceTypes.java.
+        /// Using other values may cause events to not appear in AppMetrica reports.
+        /// Other values are only allowed if explicitly supported by official documentation.
+        /// </p>
         ///
         /// <p><b>Platforms</b>: Android.</p>
         /// </summary>
