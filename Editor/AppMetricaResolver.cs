@@ -12,10 +12,18 @@ namespace Io.AppMetrica.Editor {
 
         private const string TAG = "AppMetricaResolver";
 
+#if UNITY_2021_3_OR_NEWER
         private static readonly NamedBuildTarget[] SupportedBuildTargets = {
             NamedBuildTarget.iOS,
             NamedBuildTarget.Android,
         };
+#else
+        private static readonly BuildTargetGroup[] SupportedBuildTargets = {
+            BuildTargetGroup.Android,
+            BuildTargetGroup.iOS
+        };
+        private static readonly char[] DefineSplits = { ';', ',', ' ' };
+#endif
 
         internal static readonly Dictionary<string, Feature> SupportedFeatures = new Dictionary<string, Feature>
         {
@@ -64,7 +72,13 @@ namespace Io.AppMetrica.Editor {
 
         private static void ApplyDefines() {
             foreach (var supportedTarget in SupportedBuildTargets) {
+#if UNITY_2021_3_OR_NEWER
                 PlayerSettings.GetScriptingDefineSymbols(supportedTarget, out var currentDefines);
+#else
+                var currentDefines = PlayerSettings
+                    .GetScriptingDefineSymbolsForGroup(supportedTarget)
+                    .Split(DefineSplits, System.StringSplitOptions.RemoveEmptyEntries);
+#endif
                 var enabledDefines = SupportedFeatures.Values
                     .Where(feature => feature.IsEnabled)
                     .Select(feature => feature.DefineName)
@@ -91,8 +105,11 @@ namespace Io.AppMetrica.Editor {
                     .Except(disabledDefines)
                     .Except(autoDisabledDefines)
                     .ToArray();
-
+#if UNITY_2021_3_OR_NEWER
                 PlayerSettings.SetScriptingDefineSymbols(supportedTarget, newDefines);
+#else
+                PlayerSettings.SetScriptingDefineSymbolsForGroup(supportedTarget, string.Join(";", newDefines));
+#endif
                 AssetDatabase.SaveAssets();
             }
         }

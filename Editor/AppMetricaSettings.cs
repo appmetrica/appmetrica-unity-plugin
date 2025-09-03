@@ -72,7 +72,7 @@ namespace Io.AppMetrica.Editor {
         public static string GetString(string name, string defaultValue = "") {
             lock (LockObject) {
                 LoadIfEmpty();
-                return _inMemoryStorage.GetValueOrDefault(name, defaultValue);
+                return _inMemoryStorage.TryGetValue(name, out var value) ? value : defaultValue;
             }
         }
         
