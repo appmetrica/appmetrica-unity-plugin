@@ -6,7 +6,7 @@ using Io.AppMetrica.Editor.Features.Utils;
 
 namespace Io.AppMetrica.Editor {
     internal class ManifestProcessor : IPostGenerateGradleAndroidProject {
-        private const string VERSION = "6.6.0";
+        private const string VERSION = "6.7.0";
         private const string APPMETRICA_NAMESPACE = "io.appmetrica.analytics";
 
         public int callbackOrder { get { return 0; } }

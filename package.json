@@ -1,6 +1,6 @@
 {
   "name": "io.appmetrica.analytics",
-  "version": "6.6.0",
+  "version": "6.7.0",
   "displayName": "AppMetrica",
   "description": "A Unity plugin for AppMetrica. AppMetrica is an end-to-end app analytics and marketing tool that works for Android and iOS.",
   "changelogUrl": "https://appmetrica.io/docs/en/sdk/unity/changelog",
