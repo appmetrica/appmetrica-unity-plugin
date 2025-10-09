@@ -47,7 +47,7 @@ namespace Io.AppMetrica.Native.Dummy {
         public void ReportEvent([NotNull] string eventName, [CanBeNull] string jsonValue) { }
 
         public void ReportExceptionFromLog(string condition, string exception, string source) { }
-        
+
         public void ReportExternalAttribution([NotNull] string source, [NotNull] string value) { }
 
         public void ReportRevenue([NotNull] Revenue revenue) { }

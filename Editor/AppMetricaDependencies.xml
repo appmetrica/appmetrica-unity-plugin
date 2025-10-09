@@ -6,5 +6,6 @@
     </androidPackages>
     <iosPods>
         <iosPod name="AppMetricaAnalytics" version="5.13.0"/>
+        <iosPod name="AppMetricaLibraryAdapter" version="5.13.0"/>
     </iosPods>
 </dependencies>
