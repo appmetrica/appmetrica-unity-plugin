@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using GooglePlayServices;
 using Io.AppMetrica.Editor.Features;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEngine;
+#if UNITY_ANDROID
+using GooglePlayServices;
+#endif
 
 namespace Io.AppMetrica.Editor {
     internal static class AppMetricaResolver {
@@ -40,7 +42,9 @@ namespace Io.AppMetrica.Editor {
             }
             
             ApplyDefines();
-            PlayServicesResolver.Resolve(forceResolution: true);
+#if UNITY_ANDROID
+            PlayServicesResolver.Resolve(forceResolution: PlayServicesResolver.AutomaticResolutionEnabled);
+#endif
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }

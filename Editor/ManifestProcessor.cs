@@ -1,3 +1,4 @@
+#if UNITY_ANDROID
 using UnityEditor.Android;
 using System.IO;
 using System.Xml;
@@ -77,3 +78,4 @@ namespace Io.AppMetrica.Editor {
         }
     }
 }
+#endif
