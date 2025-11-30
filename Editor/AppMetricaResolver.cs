@@ -32,6 +32,7 @@ namespace Io.AppMetrica.Editor {
             [SupportedFeatureNames.AppHudAdapter] = new AppHudAdapter("AppHudAdapter"),
             [SupportedFeatureNames.AppLovinAdRevenueV8] = new AppLovinAdRevenueV8("AppLovinAdRevenueV8"),
             [SupportedFeatureNames.IronSourceAdRevenueV8] = new IronSourceAdRevenueV8("IronSourceAdRevenueV8"),
+            [SupportedFeatureNames.IronSourceAdRevenueV9] = new IronSourceAdRevenueV9("IronSourceAdRevenueV9"),
             [SupportedFeatureNames.FyberAdRevenueV3] = new FyberAdRevenueV3("FyberAdRevenueV3"),
             [SupportedFeatureNames.TopOnAdRevenueV2] = new TopOnAdRevenueV2("TopOnAdRevenueV2"),
         };
@@ -127,6 +128,7 @@ namespace Io.AppMetrica.Editor {
         internal const string AppHudAdapter = nameof(AppHudAdapter);
         internal const string AppLovinAdRevenueV8 = nameof(AppLovinAdRevenueV8);
         internal const string IronSourceAdRevenueV8 = nameof(IronSourceAdRevenueV8);
+        internal const string IronSourceAdRevenueV9 = nameof(IronSourceAdRevenueV9);
         internal const string FyberAdRevenueV3 = nameof(FyberAdRevenueV3);
         internal const string TopOnAdRevenueV2 = nameof(TopOnAdRevenueV2);
     }

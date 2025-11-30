@@ -33,7 +33,7 @@ namespace Io.AppMetrica.Editor.Features.Utils {
             adRevenueSources.Add("topon");
 #endif
             
-#if APPMETRICA_FEATURES_ADREVENUE_IRONSOURCE_V8
+#if APPMETRICA_FEATURES_ADREVENUE_IRONSOURCE_V8 || APPMETRICA_FEATURES_ADREVENUE_IRONSOURCE_V9
             adRevenueSources.Add("ironsource");
 #endif
 
