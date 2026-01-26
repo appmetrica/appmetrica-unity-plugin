@@ -81,8 +81,6 @@ public interface StartupParamsCallbackProxy {
                     return "PROVIDER_UNAVAILABLE";
                 case INVALID_VALUE_FROM_PROVIDER:
                     return "INVALID_VALUE_FROM_PROVIDER";
-                case NETWORK_ERROR:
-                    return "NETWORK_ERROR";
                 case FEATURE_DISABLED:
                     return "FEATURE_DISABLED";
                 case UNKNOWN_ERROR:
