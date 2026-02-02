@@ -145,6 +145,10 @@ namespace Io.AppMetrica.Native.Ios {
         public void SetUserProfileID([CanBeNull] string userProfileID) {
             AppMetricaProxy.amau_setUserProfileID(userProfileID);
         }
+
+        public void SetAdvIdentifiersTracking(bool enabled) {
+            AppMetricaProxy.amau_setAdvIdentifiersTracking(enabled);
+        }
     }
 }
 #endif

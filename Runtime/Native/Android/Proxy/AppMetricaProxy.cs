@@ -125,6 +125,10 @@ namespace Io.AppMetrica.Native.Android.Proxy {
             NativeClass.CallStatic("setUserProfileID", userProfileId);
         }
 
+        public static void SetAdvIdentifiersTracking(bool enabled) {
+            NativeClass.CallStatic("setAdvIdentifiersTracking", enabled);
+        }
+
         public static void TouchReporter([NotNull] string apiKey) {
             NativeClass.CallStatic("touchReporter", apiKey);
         }

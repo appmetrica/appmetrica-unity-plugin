@@ -268,3 +268,8 @@ void amau_touchReporter(char *apiKey)
 {
     [AMAAppMetrica reporterForAPIKey:amau_stringFromCString(apiKey)];
 }
+
+void amau_setAdvIdentifiersTracking(bool enabled)
+{
+    [AMAAppMetrica setAdvertisingIdentifierTrackingEnabled:enabled];
+}

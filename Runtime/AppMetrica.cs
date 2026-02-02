@@ -440,6 +440,16 @@ namespace Io.AppMetrica {
             Native.SetUserProfileID(userProfileID);
         }
 
+        /// <summary>
+        /// Sets whether AppMetrica should track advertising identifiers.
+        ///
+        /// <p><b>Platforms</b>: Android, iOS.</p>
+        /// </summary>
+        /// <param name="enabled">true to allow AppMetrica to track advertising identifiers, otherwise false.</param>
+        public static void SetAdvIdentifiersTracking(bool enabled) {
+            Native.SetAdvIdentifiersTracking(enabled);
+        }
+
         internal static void ReportExceptionFromLog(string condition, string exception, string source) {
             Native.ReportExceptionFromLog(condition, exception, source);
         }

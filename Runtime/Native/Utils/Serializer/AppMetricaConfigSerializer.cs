@@ -20,6 +20,7 @@ namespace Io.AppMetrica.Native.Utils.Serializer {
                 { "FirstActivationAsUpdate", self.FirstActivationAsUpdate },
                 { "Location", self.Location?.ToJsonString() },
                 { "LocationTracking", self.LocationTracking },
+                { "AdvIdentifiersTracking", self.AdvIdentifiersTracking },
                 { "Logs", self.Logs },
                 { "MaxReportsCount", self.MaxReportsCount },
                 { "MaxReportsInDatabaseCount", self.MaxReportsInDatabaseCount },

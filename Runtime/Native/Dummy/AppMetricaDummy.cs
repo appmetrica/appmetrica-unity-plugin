@@ -73,5 +73,7 @@ namespace Io.AppMetrica.Native.Dummy {
         public void SetLocationTracking(bool enabled) { }
 
         public void SetUserProfileID([CanBeNull] string userProfileID) { }
+
+        public void SetAdvIdentifiersTracking(bool enabled) { }
     }
 }

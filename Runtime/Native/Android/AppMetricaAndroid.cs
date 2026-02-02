@@ -145,6 +145,10 @@ namespace Io.AppMetrica.Native.Android {
         public void SetUserProfileID([CanBeNull] string userProfileID) {
             AppMetricaProxy.SetUserProfileID(userProfileID);
         }
+
+        public void SetAdvIdentifiersTracking(bool enabled) {
+            AppMetricaProxy.SetAdvIdentifiersTracking(enabled);
+        }
     }
 }
 #endif

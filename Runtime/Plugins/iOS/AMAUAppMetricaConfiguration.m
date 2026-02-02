@@ -66,6 +66,9 @@ AMAAppMetricaConfiguration *amau_deserializeAppMetricaConfiguration(char *json)
     if (dict[@"LocationTracking"] != nil) {
         config.locationTracking = [dict[@"LocationTracking"] boolValue];
     }
+    if (dict[@"AdvIdentifiersTracking"] != nil) {
+        config.advertisingIdentifierTrackingEnabled = [dict[@"AdvIdentifiersTracking"] boolValue];
+    }
     if (dict[@"Logs"] != nil) {
         config.logsEnabled = [dict[@"Logs"] boolValue];
     }

@@ -135,6 +135,14 @@ namespace Io.AppMetrica {
         public bool? LocationTracking { get; set; }
 
         /// <summary>
+        /// Sets whether AppMetrica should track advertising identifiers.
+        ///
+        /// <p><b>Platforms</b>: Android, iOS.</p>
+        /// </summary>
+        [CanBeNull]
+        public bool? AdvIdentifiersTracking { get; set; }
+
+        /// <summary>
         /// Enable AppMetrica logging.
         /// <p>True if enabled, false if not.</p>
         ///

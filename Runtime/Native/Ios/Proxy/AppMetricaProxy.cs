@@ -90,6 +90,9 @@ namespace Io.AppMetrica.Native.Ios.Proxy {
         public static extern void amau_setUserProfileID([CanBeNull] string userProfileID);
 
         [DllImport("__Internal")]
+        public static extern void amau_setAdvIdentifiersTracking(bool enabled);
+
+        [DllImport("__Internal")]
         public static extern void amau_touchReporter([NotNull] string apiKey);
     }
 }

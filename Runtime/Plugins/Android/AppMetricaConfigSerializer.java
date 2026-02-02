@@ -61,6 +61,9 @@ final class AppMetricaConfigSerializer {
         if (json.has("LocationTracking")) {
             builder.withLocationTracking(json.getBoolean("LocationTracking"));
         }
+        if (json.has("AdvIdentifiersTracking")) {
+            builder.withAdvIdentifiersTracking(json.getBoolean("AdvIdentifiersTracking"));
+        }
         if (json.optBoolean("Logs", false)) {
             builder.withLogs();
         }

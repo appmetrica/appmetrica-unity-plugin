@@ -206,6 +206,10 @@ public final class AppMetricaProxy {
     public static void touchReporter(@NonNull String apiKey) {
         AppMetrica.getReporter(getActivity(), apiKey);
     }
+    
+    public static void setAdvIdentifiersTracking(boolean enabled) {
+        AppMetrica.setAdvIdentifiersTracking(enabled);
+    }
 
     @NonNull
     private static Activity getActivity() {
