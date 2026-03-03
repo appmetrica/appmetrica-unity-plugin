@@ -49,7 +49,7 @@ namespace Io.AppMetrica.Editor {
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
-        
+
         internal static void UpdateDependencyState(string name, bool isEnabled) {
             string[] assets = AssetDatabase.FindAssets(name);
 
@@ -58,18 +58,27 @@ namespace Io.AppMetrica.Editor {
                 return;
             }
 
-            if (assets.Length == 2 && isEnabled) {
+            string activeAssetPath = $"Assets/Editor/{name}.xml";
+            string templateGuid = assets.FirstOrDefault(a => AssetDatabase.GUIDToAssetPath(a) != activeAssetPath);
+
+            if (templateGuid == null) {
+                Log($"Cannot find template for dependency - {name}");
                 return;
             }
 
-            string asset = assets[0];
-            string path = AssetDatabase.GUIDToAssetPath(asset);
-            
+            string templatePath = AssetDatabase.GUIDToAssetPath(templateGuid);
             string filePath = $"{Application.dataPath}/Editor/{name}.xml";
-            if (isEnabled && !File.Exists(filePath)) {
+
+            if (isEnabled) {
+                if (File.Exists(filePath) &&
+                    File.ReadAllBytes(filePath).SequenceEqual(File.ReadAllBytes(templatePath))) {
+                    return;
+                }
+
                 Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-                File.Copy(path, filePath);
-            } else if (!isEnabled && File.Exists(filePath)) {
+                File.Copy(templatePath, filePath, overwrite: true);
+            }
+            else if (File.Exists(filePath)) {
                 File.Delete(filePath);
                 File.Delete(filePath + ".meta");
             }
