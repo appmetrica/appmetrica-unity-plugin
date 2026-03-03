@@ -6,6 +6,6 @@
         <androidPackage spec="io.appmetrica.analytics:analytics-apphud:8.0.0"/>
     </androidPackages>
     <iosPods>
-        <iosPod name="AppMetricaApphudAdapter" version="1.0.0"/>
+        <iosPod name="AppMetricaApphudAdapter" version="1.1.2"/>
     </iosPods>
 </dependencies>

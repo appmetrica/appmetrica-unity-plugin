@@ -6,5 +6,5 @@
 
 void amau_subscribeForAutoCollectedData(char *apiKey)
 {
-    [[AMAAppMetricaLibraryAdapter sharedInstance] subscribeForAutocollectedDataForApiKey:amau_stringFromCString(apiKey)];
+    [[AMAAnalyticsLibraryAdapter sharedInstance] subscribeForAutocollectedDataForApiKey:amau_stringFromCString(apiKey)];
 }

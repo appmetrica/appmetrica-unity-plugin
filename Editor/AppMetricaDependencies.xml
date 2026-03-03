@@ -5,7 +5,7 @@
         <androidPackage spec="androidx.annotation:annotation:1.7.1"/>
     </androidPackages>
     <iosPods>
-        <iosPod name="AppMetricaAnalytics" version="5.16.0"/>
-        <iosPod name="AppMetricaLibraryAdapter" version="5.16.0"/>
+        <iosPod name="AppMetricaAnalytics" version="6.1.0"/>
+        <iosPod name="AppMetricaLibraryAdapter" version="6.1.0"/>
     </iosPods>
 </dependencies>
