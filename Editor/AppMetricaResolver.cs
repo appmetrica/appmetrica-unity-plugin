@@ -85,6 +85,26 @@ namespace Io.AppMetrica.Editor {
         }
 
         private static void ApplyDefines() {
+            var enabledDefines = SupportedFeatures.Values
+                .Where(feature => feature.IsEnabled)
+                .Select(feature => feature.DefineName)
+                .ToArray();
+
+            var autoEnabledDefines = SupportedFeatures.Values
+                .Where(feature => feature.IsAutoEnabled)
+                .Select(feature => feature.AutoEnabledDefineName)
+                .ToArray();
+
+            var disabledDefines = SupportedFeatures.Values
+                .Where(feature => !feature.IsEnabled)
+                .Select(feature => feature.DefineName)
+                .ToArray();
+
+            var autoDisabledDefines = SupportedFeatures.Values
+                .Where(feature => !feature.IsAutoEnabled)
+                .Select(feature => feature.AutoEnabledDefineName)
+                .ToArray();
+
             foreach (var supportedTarget in SupportedBuildTargets) {
 #if UNITY_2021_3_OR_NEWER
                 PlayerSettings.GetScriptingDefineSymbols(supportedTarget, out var currentDefines);
@@ -93,26 +113,6 @@ namespace Io.AppMetrica.Editor {
                     .GetScriptingDefineSymbolsForGroup(supportedTarget)
                     .Split(DefineSplits, System.StringSplitOptions.RemoveEmptyEntries);
 #endif
-                var enabledDefines = SupportedFeatures.Values
-                    .Where(feature => feature.IsEnabled)
-                    .Select(feature => feature.DefineName)
-                    .ToArray();
-
-                var autoEnabledDefines = SupportedFeatures.Values
-                    .Where(feature => feature.IsAutoEnabled)
-                    .Select(feature => feature.AutoEnabledDefineName)
-                    .ToArray();
-                
-                var disabledDefines = SupportedFeatures.Values
-                    .Where(feature => !feature.IsEnabled)
-                    .Select(feature => feature.DefineName)
-                    .ToArray();
-                
-                var autoDisabledDefines = SupportedFeatures.Values
-                    .Where(feature => !feature.IsAutoEnabled)
-                    .Select(feature => feature.AutoEnabledDefineName)
-                    .ToArray();
-
                 var newDefines = currentDefines
                     .Union(enabledDefines)
                     .Union(autoEnabledDefines)
@@ -124,7 +124,6 @@ namespace Io.AppMetrica.Editor {
 #else
                 PlayerSettings.SetScriptingDefineSymbolsForGroup(supportedTarget, string.Join(";", newDefines));
 #endif
-                AssetDatabase.SaveAssets();
             }
         }
         
