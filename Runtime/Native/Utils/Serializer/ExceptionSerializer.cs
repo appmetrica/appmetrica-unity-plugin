@@ -106,7 +106,9 @@ namespace Io.AppMetrica.Native.Utils.Serializer {
             return value?.Split(new[] { Environment.NewLine }, StringSplitOptions.None)
                 .Where(it => {
                     var trimStr = it.Trim();
-                    return trimStr.Length != 0 && !trimStr.StartsWith("Rethrow as"); // for inner exception
+                    return trimStr.Length != 0
+                        && !trimStr.StartsWith("Rethrow as") // for inner exception
+                        && !trimStr.StartsWith("---"); // "--- End of stack trace from previous location ---"
                 })
                 // for android crash first item is exception class + message
                 .SkipWhile(it => "AndroidJavaException: " + it == condition)
