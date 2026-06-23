@@ -6,8 +6,8 @@ Detailed information and instructions for integration are available in the [docu
 
 The plugin is available for Android and iOS and includes native AppMetrica SDKs:
 
-- AppMetrica SDK for Android [8.1.0](https://appmetrica.io/docs/en/sdk/android/changelog-android#s-8-1-0).
-- AppMetrica SDK for iOS [6.2.0](https://appmetrica.io/docs/en/sdk/ios/changelog-ios#v-6-2-0).
+- AppMetrica SDK for Android [8.3.0](https://appmetrica.io/docs/en/sdk/android/changelog-android#s-8-3-0).
+- AppMetrica SDK for iOS [6.3.0](https://appmetrica.io/docs/en/sdk/ios/changelog-ios#v-6-3-0).
 
 ## Documentation
 

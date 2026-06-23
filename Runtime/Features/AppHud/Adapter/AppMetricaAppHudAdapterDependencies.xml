@@ -3,9 +3,13 @@
 <!--Add this file to your Version Control System(Git, SVN etc.)-->
 <dependencies>
     <androidPackages>
-        <androidPackage spec="io.appmetrica.analytics:analytics-apphud:8.1.0"/>
+        <androidPackage spec="io.appmetrica.analytics:analytics-apphud:8.3.0"/>
     </androidPackages>
     <iosPods>
         <iosPod name="AppMetricaApphudAdapter" version="1.1.2"/>
     </iosPods>
+    <remoteSwiftPackage url="https://github.com/appmetrica/appmetrica-sdk-apphud-adapter-ios"
+                        version="1.1.2">
+        <swiftPackage name="AppMetricaApphudAdapter" replacesPod="AppMetricaApphudAdapter"/>
+    </remoteSwiftPackage>
 </dependencies>
